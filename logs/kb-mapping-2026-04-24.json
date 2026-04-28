@@ -1,0 +1,30 @@
+[
+  {
+    "complexId": "cmo81944400e1tkuetpwba0jh",
+    "complexName": "1차동원",
+    "dong": "지내동",
+    "city": "김해시",
+    "status": "not_found"
+  },
+  {
+    "complexId": "cmo81bmz400yktkuest7qesis",
+    "complexName": "21세기",
+    "dong": "지내동",
+    "city": "김해시",
+    "status": "not_found"
+  },
+  {
+    "complexId": "cmo82whkx02awvgue5eck092t",
+    "complexName": "4차동원(47-0)",
+    "dong": "지내동",
+    "city": "김해시",
+    "status": "not_found"
+  },
+  {
+    "complexId": "cmo81himc0205tkuezjzltvvt",
+    "complexName": "AK2차",
+    "dong": "어방동",
+    "city": "김해시",
+    "status": "not_found"
+  }
+]

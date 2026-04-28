@@ -1,0 +1,250 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── 아파트 단지 마스터 데이터 ────────────────────────────────────
+model ApartmentComplex {
+  id           String   @id @default(cuid())
+  name         String
+  nameChosung  String   // 초성 검색용 e.g. "ㄷㅅㅍㅅㅌㅍㅋ"
+  kbComplexNo     String?  // KB부동산 단지 번호
+  naverHscpNo     String?  // 네이버 부동산 단지 번호
+  kaptCode        String?  // K-APT 단지 코드 (한국부동산원)
+  parkingCount    Int?     // 주차 가능 총 대수
+  elevatorCount   Int?     // 승강기 대수
+  heatingMethod   String?  // 난방방식 (개별난방 | 중앙난방 | 지역난방)
+  hallwayType     String?  // 복도유형 (계단식 | 복도식 | 혼합식)
+  totalHouseholds Int?     // 총 세대수
+  exclusiveAreaSum Float?   // 주거전용면적합계
+  maintenanceAreaSum Float?  // 관리비부과면적
+  // [주차 데이터]
+  parkingCountGround      Int?    // 지상 주차대수 (kaptParking)
+  parkingCountUnderground Int?    // 지하 주차대수 (kaptdParking)
+  
+  // [보안 및 기타]
+  cctvCount               Int?    // CCTV 대수 (kaptCctv)
+  
+  // [부대/복리시설 - API는 보통 대수를 주거나 유무를 줌]
+  hasGym                  Boolean? // 헬스장 (kaptGym)
+  hasLibrary              Boolean? // 작은도서관 (kaptLibr)
+  hasDaycare              Boolean? // 어린이집 (kaptNurs)
+  hasSeniorCenter         Boolean? // 경로당 (kaptOpro)
+  hasPlayground           Boolean? // 놀이터 (kaptPlay)
+
+  // [추후 확장을 위한 원본 데이터 보관용 (선택)]
+  detailedRawData         Json?   // 상세 API 응답 전체 저장
+
+  //
+  dataStatus String   @default("PENDING")
+
+  city            String   // "창원시" | "김해시"
+  district     String   // "성산구"
+  dong         String   // "중앙동"
+  roadAddress  String?
+  latitude     Float?
+  longitude    Float?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  transactions     Transaction[]
+  recordHighs      RecordHighPrice[]
+  advertisers      ApartmentAdvertiser[]
+  rentRecords      RentRecord[]
+  listingStats     ListingStats[]
+  schoolInfos      SchoolInfo[]
+  maintenanceFees  MaintenanceFee[]
+
+  @@index([city, dong])
+  @@index([nameChosung])
+}
+
+// ─── 실거래 개별 건 (MOLIT API 원본, 매매 전용) ────────────────────
+model Transaction {
+  id             String           @id @default(cuid())
+  complexId      String
+  complex        ApartmentComplex @relation(fields: [complexId], references: [id])
+
+  areaRaw        String   // "84.97" (㎡, API 원본값)
+  areaPyeong     Float    // Math.round(㎡ / 3.305785) — 버킷 단위
+  floor          Int
+
+  priceManwon    Int      // 85000 = 8.5억 (만원 단위)
+
+  contractYear   Int
+  contractMonth  Int
+  contractDay    Int
+  contractDate   DateTime
+
+  registeredDate DateTime?
+
+  cancelFlag     Boolean  @default(false) // DPOS_GBN = 'C'
+  directDeal     Boolean  @default(false) // 직거래 여부
+
+  rawData        Json     // MOLIT 원본 payload (감사 추적용)
+  ingestedAt     DateTime @default(now())
+
+  @@index([complexId, areaPyeong])
+  @@index([contractDate])
+  @@index([cancelFlag])
+}
+
+// ─── 전세 실거래 (갭 가격 계산 소스, 외부 크롤러 적재) ──────────────
+model RentRecord {
+  id           String           @id @default(cuid())
+  complexId    String
+  complex      ApartmentComplex @relation(fields: [complexId], references: [id])
+
+  areaPyeong   Float    // Transaction.areaPyeong과 동일 버킷
+  priceManwon  Int      // 만원
+  contractDate DateTime
+  floor        Int
+
+  ingestedAt   DateTime @default(now())
+
+  @@index([complexId, areaPyeong])
+  @@index([contractDate])
+}
+
+// ─── 매물 수 추이 (외부 크롤러가 주기적으로 적재) ────────────────────
+model ListingStats {
+  id          String           @id @default(cuid())
+  complexId   String
+  complex     ApartmentComplex @relation(fields: [complexId], references: [id])
+
+  date        DateTime         // 수집 기준일 (일 단위)
+  saleCount   Int              // 매매 매물 수
+  rentCount   Int              // 전세 매물 수
+  createdAt   DateTime         @default(now())
+
+  @@unique([complexId, date])
+  @@index([complexId])
+}
+
+// ─── 학교 정보 (학교알리미 API 연동) ─────────────────────────────────
+model SchoolInfo {
+  id          String           @id @default(cuid())
+  complexId   String
+  complex     ApartmentComplex @relation(fields: [complexId], references: [id])
+
+  schoolName  String
+  schoolType  String           // "공립" | "사립" | "국립"
+  address     String?          // 도로명 주소
+  distance    Int              // 단지와의 직선거리 (미터)
+  grade       String           // "상" | "중" | "하" (distance 기반 자동 산출)
+  schoolUrl   String?          // 학교 홈페이지 URL
+  isEstimated Boolean  @default(false) // true = 좌표 없이 동 이름 추정한 거리 (신뢰도 낮음)
+
+  @@unique([complexId, schoolName])
+  @@index([complexId])
+}
+
+// ─── 관리비 이력 (K-APT 공공데이터 연동) ─────────────────────────
+model MaintenanceFee {
+  id              String           @id @default(cuid())
+  complexId       String
+  complex         ApartmentComplex @relation(fields: [complexId], references: [id])
+
+  yearMonth       String   // "202312" (YYYYMM)
+  communalFeeWon  Int      // 공용관리비 합계 (원)
+  indivFeeWon     Int      // 개별사용료 합계 (원) — 전기/수도/가스 포함
+  totalFeeWon     Int      // 합계 (원)
+
+  collectedAt     DateTime @default(now())
+
+  @@unique([complexId, yearMonth])
+  @@index([complexId])
+}
+
+// ─── 단지+평형별 현재 역대 최고가 ────────────────────────────────
+model RecordHighPrice {
+  id            String           @id @default(cuid())
+  complexId     String
+  complex       ApartmentComplex @relation(fields: [complexId], references: [id])
+
+  areaPyeong    Float    // Transaction.areaPyeong과 동일 버킷
+
+  currentPrice  Int      // 만원
+  currentTxId   String   // Transaction.id (denormalized)
+
+  previousPrice Int?     // 만원 — 이전 신고가 (복구 시 사용)
+  previousTxId  String?
+
+  recordSetAt   DateTime // 현재 신고가 계약일
+  updatedAt     DateTime @updatedAt
+
+  history       RecordHighHistory[]
+
+  @@unique([complexId, areaPyeong])
+  @@index([complexId])
+}
+
+// ─── 신고가 변동 이력 (완전 감사 로그) ───────────────────────────
+model RecordHighHistory {
+  id            String          @id @default(cuid())
+  recordHighId  String
+  recordHigh    RecordHighPrice @relation(fields: [recordHighId], references: [id])
+
+  eventType     String   // "NEW_RECORD" | "REVERTED" | "RESTORED"
+  newPrice      Int      // 만원
+  previousPrice Int?     // 만원
+  transactionId String   // 이 이벤트를 트리거한 Transaction.id
+  contractDate  DateTime
+
+  priceDelta    Int?     // newPrice - previousPrice (음수 = 하락)
+  deltaPercent  Float?   // priceDelta / previousPrice * 100
+
+  occurredAt    DateTime @default(now())
+
+  @@index([recordHighId])
+  @@index([occurredAt])
+}
+
+// ─── 광고주 마스터 ────────────────────────────────────────────────
+model Advertiser {
+  id        String   @id @default(cuid())
+  name      String   // 상호명
+  phone     String?
+  linkUrl   String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  apartments ApartmentAdvertiser[]
+}
+
+// ─── 광고주 ↔ 단지 매칭 (N:M 조인 테이블) ─────────────────────────
+model ApartmentAdvertiser {
+  id           String           @id @default(cuid())
+  advertiserId String
+  advertiser   Advertiser       @relation(fields: [advertiserId], references: [id])
+  complexId    String
+  complex      ApartmentComplex @relation(fields: [complexId], references: [id])
+  createdAt    DateTime         @default(now())
+
+  @@unique([advertiserId, complexId])
+  @@index([complexId])
+}
+
+// ─── 취소 이력 로그 (WarningBadge 쿼리 소스) ─────────────────────
+model CancellationLog {
+  id               String   @id @default(cuid())
+  complexId        String
+  areaPyeong       Float
+
+  cancelledTxId    String
+  cancelledPrice   Int      // 만원
+
+  revertedToPrice  Int?     // 만원 — 복구된 가격 (null = 이전 기록 없음)
+  revertedToTxId   String?
+
+  wasRecordHigh    Boolean  // 취소된 거래가 당시 신고가였는지
+
+  detectedAt       DateTime @default(now())
+
+  @@index([complexId, areaPyeong])
+  @@index([detectedAt])
+}
