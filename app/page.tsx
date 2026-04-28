@@ -45,7 +45,7 @@ async function DashboardContent() {
 
       <div>
         <SectionHeader
-          title="🏆 우리 동네 프리미엄 중개사"
+          title="우리 동네 프리미엄 중개사"
           subtitle="창원·김해 현장 전문가와 직접 연결하세요"
         />
         <PremiumAgents />

@@ -32,15 +32,17 @@ function RecordBreakerItemRow({ item }: { item: RecordBreakerItem }) {
       </div>
 
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-1.5">
-          <span className="font-semibold text-gray-900 text-sm truncate max-w-[9rem] sm:max-w-none">
+        <div className="flex items-center gap-1.5 min-w-0">
+          <span className="font-semibold text-gray-900 text-sm truncate flex-1 min-w-0">
             {item.complexName}
           </span>
-          {item.hasWarning && <WarningBadge size="sm" />}
-          {item.directDeal && <DirectDealBadge size="sm" />}
+          <span className="flex-shrink-0 flex items-center gap-1">
+            {item.hasWarning && <WarningBadge size="sm" />}
+            {item.directDeal && <DirectDealBadge size="sm" />}
+          </span>
         </div>
         <div className="flex items-center gap-1.5 mt-0.5">
-          <span className="text-[11px] text-gray-500 truncate max-w-[6rem] sm:max-w-none">{item.dong}</span>
+          <span className="text-[11px] text-gray-500 truncate min-w-0">{item.dong}</span>
           <span className="text-gray-300 text-xs flex-shrink-0">·</span>
           <span className="text-[11px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-md font-medium flex-shrink-0">
             {sqm}㎡

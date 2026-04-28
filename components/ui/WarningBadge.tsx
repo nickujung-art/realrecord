@@ -24,8 +24,9 @@ export function WarningBadge({
       <span
         className={`
           inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md
-          bg-slate-100 text-slate-600 border border-slate-200
-          cursor-help transition-colors hover:bg-slate-200
+          bg-gray-100 text-gray-600 border border-gray-200
+          cursor-help transition-colors hover:bg-gray-200
+          whitespace-nowrap
           ${size === "sm" ? "text-xs" : "text-sm"}
         `}
       >
