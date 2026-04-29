@@ -11,13 +11,12 @@
  * - 상세 로그: logs/kb-mapping-YYYY-MM-DD.json
  */
 
-import { loadEnvConfig } from "@next/env";
+import * as dotenv from "dotenv";
 import puppeteer, { type Browser, type Page } from "puppeteer";
-import { prisma } from "../lib/db";
 import * as fs from "fs";
 import * as path from "path";
 
-loadEnvConfig(process.cwd());
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const DELAY_MS = 3000;
@@ -260,6 +259,7 @@ async function searchKBComplex(
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
+  const { prisma } = await import("../lib/db.js");
   const logDir = path.join(process.cwd(), "logs");
   if (!fs.existsSync(logDir)) fs.mkdirSync(logDir, { recursive: true });
   const logPath = path.join(

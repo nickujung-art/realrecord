@@ -61,7 +61,7 @@ async function main() {
     console.log(`[${i + 1}/${targets.length}] ${year}-${String(month).padStart(2, '0')} ${regionName} 수집 중...`);
 
     try {
-      await runIngestPipeline(year, month, region);
+      await runIngestPipeline(region, year, month);
       console.log(`   ✓ 성공!`);
       successCount++;
     } catch (error) {

@@ -1,5 +1,6 @@
-import { loadEnvConfig } from '@next/env';
-loadEnvConfig(process.cwd());
+import * as dotenv from "dotenv";
+import * as path from "path";
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 async function main() {
     const { prisma } = await import("../lib/db.js");

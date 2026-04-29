@@ -154,9 +154,56 @@ export interface ApartmentDetailResponse {
   cancellationCount: number;
   advertisers: AdvertiserSummary[];
   gapPrice: number | null;       // 매매가 - 전세가 (만원). RentRecord 데이터 없으면 null
+  gapPriceIsOld: boolean;        // true = 3개월 이상 된 전세 데이터 기준 (최근 1년 이내)
+  buildYear: number | null;      // 준공연도 (K-APT detailedRawData에서 추출)
   listingStats: ListingStatsData | null;
   schoolInfos: SchoolInfoSummary[];
   maintenanceFees: MaintenanceFeeData[];   // 최근 12개월, yearMonth 내림차순
+}
+
+// ─── Map Summary (Bottom Sheet) ──────────────────────────────────
+export interface SummaryTransaction {
+  contractDate: string;   // "YYYY-MM-DD"
+  priceManwon: number;
+  areaPyeong: number;
+}
+
+export interface ComplexSummary {
+  id: string;
+  name: string;
+  dong: string;
+  representativePrice: number | null;
+  representativeArea: string | null;
+  recentTransactions: SummaryTransaction[]; // 최대 5건, 오름차순(oldest first)
+  latestReview: {
+    content: string;
+    authorName: string;
+    rating: number;
+  } | null;
+}
+
+// ─── Map Marker ───────────────────────────────────────────────────
+export interface BoundsComplexItem {
+  id: string;
+  name: string;
+  lat: number;
+  lng: number;
+  mapPriorityScore: number;
+  representativePrice: number | null;  // 만원 단위
+  representativeArea: string | null;   // e.g. "24평"
+  hasRecentCancellation: boolean;      // ⚠️ 취소 경고 뱃지
+  isRecordHigh: boolean;               // 👑 최근 7일 신고가 뱃지 (서버 계산값)
+  trendScore: number;                  // 🔥 트렌드 점수
+  reviewCount: number;                 // 💬 리뷰 수
+}
+
+export interface BoundsResponse {
+  complexes: BoundsComplexItem[];
+  meta: {
+    zoomLevel: number;
+    limit: number;
+    returned: number;
+  };
 }
 
 // ─── Ingest ───────────────────────────────────────────────────────

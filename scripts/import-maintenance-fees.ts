@@ -1,5 +1,6 @@
-import { loadEnvConfig } from "@next/env";
-loadEnvConfig(process.cwd());
+import * as dotenv from "dotenv";
+import * as path from "path";
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 import fs from "fs";
 import * as XLSX from "xlsx";

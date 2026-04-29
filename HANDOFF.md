@@ -141,7 +141,10 @@ realrecord/
 │   ├── collect-listings-kb.ts
 │   ├── map-kapt-codes.ts
 │   ├── fetch-kapt-details.ts
-│   └── fetch-school-data.ts
+│   ├── fetch-school-data.ts
+│   ├── clean-school-data.ts        # 좌표 없는 단지의 SchoolInfo 정리 (Phase 2)
+│   ├── geocode-complexes.ts        # 단지 좌표 일괄 적재 + dataStatus 업데이트 (Phase 2)
+│   └── geocode-schools-kakao.ts    # 카카오 SC4로 학교 실거리 보완 (Phase 2)
 ├── types/
 │   ├── api.ts                          # API 응답 타입 전체
 │   └── molit.ts
@@ -377,8 +380,11 @@ npx tsx scripts/ingest-historical.ts          # 1. MOLIT 실거래 전체 수집
 npx tsx scripts/map-kb-ids.ts [--dry-run]     # 2. KB부동산 단지 코드 매핑
 npx tsx scripts/map-kapt-codes.ts [--dry-run] # 3. K-APT 단지 코드 매핑
 npx tsx scripts/fetch-kapt-details.ts [--fees-only | --info-only]  # 4. K-APT 시설+관리비
-npx tsx scripts/fetch-school-data.ts [--dry-run]  # 5. 학교알리미 수집
-npx tsx scripts/collect-listings-kb.ts            # 6. KB부동산 매물 수 (주기적)
+npx tsx scripts/geocode-complexes.ts [--dry-run]      # 5. 단지 좌표 적재 (지도 마커 필수)
+npx tsx scripts/clean-school-data.ts [--dry-run]      # 6. 오염 학교 데이터 정리
+npx tsx scripts/fetch-school-data.ts [--dry-run]      # 7. 학교알리미 수집
+npx tsx scripts/geocode-schools-kakao.ts [--dry-run]  # 8. 카카오 실거리 보완
+npx tsx scripts/collect-listings-kb.ts                # 9. KB부동산 매물 수 (주기적)
 ```
 
 ### 스크립트 주요 설계
@@ -557,36 +563,49 @@ complex: {
 
 > 2026-04-28 작업. 남양초 고정 노출 버그 수정 + 신축 단지 데이터 공백 대응 전략.
 
-### 즉시 (완료 또는 진행 중)
+### 즉시 (완료)
 
 - ✅ `SchoolInfo.isEstimated Boolean` 컬럼 추가 (`prisma/schema.prisma`)
 - ✅ `fetch-school-data.ts` — 구(區) 전체 900m 일괄 추정 경로 제거, 동 이름 일치 학교만 저장
 - ✅ `lib/queries/apartments.ts` — `isEstimated: false` 필터 적용
 - ✅ `ComplexConditionBento` — `isEstimated` 학교에 "거리 확인 중" 표시
-- ⬜ `npx prisma db push && npx prisma generate` 실행
-- ⬜ 오염 데이터 정리: 좌표 없는 단지의 SchoolInfo 삭제
-  ```bash
-  # 좌표 없는 단지 ID 조회 후 해당 SchoolInfo 일괄 삭제
-  # Prisma Studio 또는 별도 tsx 스크립트로 실행
-  ```
-- ⬜ `npx tsx scripts/fetch-school-data.ts` 재실행 (좌표 있는 단지부터 재수집)
+- ✅ `scripts/clean-school-data.ts` 작성 — 좌표 없는 단지의 SchoolInfo 일괄 삭제
+- ⬜ **DB 복구 후 실행 필요**: `npx tsx scripts/clean-school-data.ts` → `npx tsx scripts/fetch-school-data.ts`
 
-### Phase 2 — 자동화 수집 보강 (다음 번 물어볼 것)
+### Phase 2 — 자동화 수집 보강 (2026-04-29 완료)
 
-- ⬜ **카카오 Place API로 학교 거리 보완**
+- ✅ **카카오 Place API로 학교 거리 보완**
   - 단지 좌표 기준 반경 1km 내 `category_group_code=SC4` 검색
   - NEIS schoolName과 교차검증 → 실거리로 `isEstimated: false` 업데이트
-  - `scripts/geocode-schools-kakao.ts` 신규 작성
+  - `scripts/geocode-schools-kakao.ts` 완성 (--dry-run, logs/ 저장)
 
-- ⬜ **단지 좌표(latitude/longitude) 일괄 적재**
-  - 카카오 주소 검색 API로 `roadAddress` → 좌표 변환
-  - 좌표 없는 단지 우선 처리 → 지도 마커 표시 + 학교 실거리 계산 가능
-  - `scripts/geocode-complexes.ts` 신규 작성
+- ✅ **단지 좌표(latitude/longitude) 일괄 적재**
+  - 카카오 주소 검색 API → 키워드 검색 fallback
+  - 성공 시 `dataStatus = "GEOCODED"` 업데이트
+  - `scripts/geocode-complexes.ts` 완전 재작성 (--dry-run, logs/ 저장)
 
-- ⬜ **준공 감지 → 공공 API 자동 재수집 트리거**
-  - `ApartmentComplex.dataStatus` 필드 추가 (`"PENDING"` | `"GEOCODED"` | `"MANUAL"`)
-  - 국토부 건물 인허가 API로 신축 준공 감지 (월 1회 크론)
-  - `dataStatus = "PENDING"` 단지에 kaptCode 재매핑 + 관리비/시설 재수집 자동화
+- ✅ **`ApartmentComplex.dataStatus` 필드** — 스키마에 이미 존재 (`@default("PENDING")`)
+  - geocode-complexes.ts 성공 시 → `"GEOCODED"` 업데이트
+  - 향후: 어드민 수동 입력 시 → `"MANUAL"`
+  - ⬜ 국토부 건물 인허가 API 신축 준공 감지 — Phase 3으로 이월
+
+- ✅ **오염 학교 데이터 정리**
+  - `scripts/clean-school-data.ts` 신규 작성 (좌표 없는 단지 SchoolInfo 일괄 삭제)
+  - --dry-run으로 삭제 대상 사전 확인 가능
+
+**Phase 2 실행 순서 (DB 복구 후):**
+```bash
+# 1. 오염 데이터 사전 확인
+npx tsx scripts/clean-school-data.ts --dry-run
+# 2. 오염 데이터 삭제
+npx tsx scripts/clean-school-data.ts
+# 3. 단지 좌표 일괄 등록
+npx tsx scripts/geocode-complexes.ts
+# 4. 학교 데이터 재수집 (NEIS)
+npx tsx scripts/fetch-school-data.ts
+# 5. 카카오 실거리로 보완
+npx tsx scripts/geocode-schools-kakao.ts
+```
 
 ### Phase 3 — 유저 참여 & 어드민 Override (추후)
 

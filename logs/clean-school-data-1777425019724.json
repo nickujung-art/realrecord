@@ -1,0 +1,822 @@
+[
+  {
+    "schoolInfoId": "cmoinytbs000x3sv3ojgs5aln",
+    "complexId": "cmo819tcy00kptkuenkelawj0",
+    "complexName": "갑오마을1단지대우푸르지오3",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoinz67w00123sv3b3lumspg",
+    "complexId": "cmo818uh900b3tkuemb3fj31w",
+    "complexName": "갑오마을4단지부영8차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoinz72d00133sv3pghf871n",
+    "complexId": "cmo81htq6021jtkue4adq9b7p",
+    "complexName": "갑오마을5단지부영6차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoinzdxl00163sv36qwgoxpt",
+    "complexId": "cmo819uau00kytkue2cnjls5u",
+    "complexName": "갑오마을7단지부영10차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoinzes000173sv32yanumir",
+    "complexId": "cmo81gxcl01wftkueyxq06jar",
+    "complexName": "갑오마을8단지대우푸르지오2차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiofinw004g3sv35fs2m2hx",
+    "complexId": "cmo81b6mi00uetkuew5xdwegw",
+    "complexName": "구산제2주공",
+    "complexCity": "김해시",
+    "complexDong": "구산동",
+    "schoolName": "김해구지초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqr8zl00jp3sv3zs450azc",
+    "complexId": "cmo81brb000zitkuewr3532q6",
+    "complexName": "분성마을현대I아파트2",
+    "complexCity": "김해시",
+    "complexDong": "삼계동",
+    "schoolName": "화정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqr9ue00jq3sv34icagtmu",
+    "complexId": "cmo81acpy00p0tkueym3ougca",
+    "complexName": "분성마을현대I아파트3",
+    "complexCity": "김해시",
+    "complexDong": "삼계동",
+    "schoolName": "화정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiseuy200s83sv3rwxay4kf",
+    "complexId": "cmo82ut8n0240vguefpw62bx7",
+    "complexName": "신일아트맨션",
+    "complexCity": "김해시",
+    "complexDong": "안동",
+    "schoolName": "삼방초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiseuvk00s73sv3n2710sg3",
+    "complexId": "cmo82ut8n0240vguefpw62bx7",
+    "complexName": "신일아트맨션",
+    "complexCity": "김해시",
+    "complexDong": "안동",
+    "schoolName": "김해활천초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoit9xp800xc3sv33lx9lll4",
+    "complexId": "cmo8193dt00dttkuej5g2j4jo",
+    "complexName": "율상마을푸르지오3단지(1차)",
+    "complexCity": "김해시",
+    "complexDong": "율하동",
+    "schoolName": "김해모산초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoit9xms00xb3sv3011a43q1",
+    "complexId": "cmo8193dt00dttkuej5g2j4jo",
+    "complexName": "율상마을푸르지오3단지(1차)",
+    "complexCity": "김해시",
+    "complexDong": "율하동",
+    "schoolName": "관동초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoit9yjn00xd3sv3qf2fyq8c",
+    "complexId": "cmo81bpr200z4tkueat4wdl8n",
+    "complexName": "율상마을푸르지오4단지(2차)",
+    "complexCity": "김해시",
+    "complexDong": "율하동",
+    "schoolName": "관동초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoit9ym100xe3sv3h1abze0e",
+    "complexId": "cmo81bpr200z4tkueat4wdl8n",
+    "complexName": "율상마을푸르지오4단지(2차)",
+    "complexCity": "김해시",
+    "complexDong": "율하동",
+    "schoolName": "김해모산초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoitbg7x00xt3sv3txsmqjiw",
+    "complexId": "cmo87y57e0ifevgue8cbyjvlx",
+    "complexName": "을지뷰어빌101동",
+    "complexCity": "김해시",
+    "complexDong": "삼계동",
+    "schoolName": "화정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoitbh2c00xu3sv3072ge1tz",
+    "complexId": "cmo83hreh04hlvgue4dvlqkam",
+    "complexName": "을지뷰어빌102동",
+    "complexCity": "김해시",
+    "complexDong": "삼계동",
+    "schoolName": "화정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoitfi4d00yp3sv3mdkkcc57",
+    "complexId": "cmo83n106051fvguew5hvhiqh",
+    "complexName": "임호산파크빌(263-0)",
+    "complexCity": "김해시",
+    "complexDong": "외동",
+    "schoolName": "내덕초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivbtkf01b43sv3q7kc97f6",
+    "complexId": "cmo8eec1e13mqvgue4d8705qw",
+    "complexName": "한효가든맨션101동",
+    "complexCity": "김해시",
+    "complexDong": "안동",
+    "schoolName": "삼방초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivbthk01b33sv3c4mawmig",
+    "complexId": "cmo8eec1e13mqvgue4d8705qw",
+    "complexName": "한효가든맨션101동",
+    "complexCity": "김해시",
+    "complexDong": "안동",
+    "schoolName": "김해활천초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivt8yi01el3sv37r3qyq9y",
+    "complexId": "cmo81a7x300nqtkue33bc0gp4",
+    "complexName": "화정마을부영6차",
+    "complexCity": "김해시",
+    "complexDong": "삼계동",
+    "schoolName": "화정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqrly300jt3sv3570xmf5f",
+    "complexId": "cmo85doc20am6vgue5jke6olj",
+    "complexName": "비룡골든맨션(3-1번지)",
+    "complexCity": "창원시",
+    "complexDong": "동동",
+    "schoolName": "교방초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqrm0m00ju3sv3tplxwiu0",
+    "complexId": "cmo85doc20am6vgue5jke6olj",
+    "complexName": "비룡골든맨션(3-1번지)",
+    "complexCity": "창원시",
+    "complexDong": "동동",
+    "schoolName": "도계초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivr8gh01dw3sv3xdm1t4zq",
+    "complexId": "cmo81ijj8023gtkueck6bvm15",
+    "complexName": "화신동백3차",
+    "complexCity": "창원시",
+    "complexDong": "동동",
+    "schoolName": "도계초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivr8du01dv3sv31j2y7vsv",
+    "complexId": "cmo81ijj8023gtkueck6bvm15",
+    "complexName": "화신동백3차",
+    "complexCity": "창원시",
+    "complexDong": "동동",
+    "schoolName": "교방초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivr9du01dy3sv3x42tuyou",
+    "complexId": "cmo850l7i09kvvguefpc7ytk7",
+    "complexName": "화신동백빌라(가동)",
+    "complexCity": "창원시",
+    "complexDong": "서동",
+    "schoolName": "광려초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivr9b501dx3sv31sh5spt6",
+    "complexId": "cmo850l7i09kvvguefpc7ytk7",
+    "complexName": "화신동백빌라(가동)",
+    "complexCity": "창원시",
+    "complexDong": "서동",
+    "schoolName": "감천초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoip0jhn008s3sv3m6orfb2z",
+    "complexId": "cmo9nwiwt013x3sueyfydym3h",
+    "complexName": "다조맨션",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "교방동",
+    "schoolName": "교방초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoipbio500al3sv384e6hdxk",
+    "complexId": "cmo9rsoqg0mbi3sueizeoxawj",
+    "complexName": "대림공작1",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "자산동",
+    "schoolName": "무학초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoipbjik00am3sv3zxpjg3m0",
+    "complexId": "cmo9nwtc9016s3suest41lq83",
+    "complexName": "대림공작2",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "자산동",
+    "schoolName": "무학초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq5tow00fn3sv3b7dug6rt",
+    "complexId": "cmo9tmud60t483suepykfayt8",
+    "complexName": "라레스빌라",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "자산동",
+    "schoolName": "무학초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq9pwz00gc3sv394go7ngh",
+    "complexId": "cmo9nxe4e01ca3sueanc67i4n",
+    "complexName": "리코그린맨션",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "자산동",
+    "schoolName": "무학초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoitv4a301203sv3xfltz2dp",
+    "complexId": "cmo9pop9o0bfg3suej3vpu2oc",
+    "complexName": "진달래국민주택",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "월포초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoitv47i011z3sv3jbg4wah6",
+    "complexId": "cmo9pop9o0bfg3suej3vpu2oc",
+    "complexName": "진달래국민주택",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "마산신월초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiupwjm017h3sv3srh8xp6p",
+    "complexId": "cmo9nwj8u01413suetzqtu29p",
+    "complexName": "평화골드맨션",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "자산동",
+    "schoolName": "무학초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivdkbo01bq3sv37rdy62fe",
+    "complexId": "cmo9nxcwb01bx3sueapref4sl",
+    "complexName": "합포만품으로",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "산호동",
+    "schoolName": "용마초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivmbtq01cz3sv3kk0juwuv",
+    "complexId": "cmo9nwmas014v3suetmvdpwtq",
+    "complexName": "현대건설1차",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "마산신월초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivmbwh01d03sv3trdqz1w8",
+    "complexId": "cmo9nwmas014v3suetmvdpwtq",
+    "complexName": "현대건설1차",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "월포초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivs7vt01e83sv3xtarvo1i",
+    "complexId": "cmo9nwbgn011l3sueg6hglvty",
+    "complexName": "화인아트빌라1",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "월포초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivs7ta01e73sv3ol1gujnn",
+    "complexId": "cmo9nwbgn011l3sueg6hglvty",
+    "complexName": "화인아트빌라1",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "마산신월초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivs8qc01e93sv3rdtsxexr",
+    "complexId": "cmo9nacos00usz8ueynw70hlf",
+    "complexName": "화인아트빌라2",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "마산신월초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivs8sx01ea3sv3xw55bpc4",
+    "complexId": "cmo9nacos00usz8ueynw70hlf",
+    "complexName": "화인아트빌라2",
+    "complexCity": "창원시 마산합포구",
+    "complexDong": "월영동",
+    "schoolName": "월포초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoinsnng00073sv36xci5b8k",
+    "complexId": "cmo9orvm806gg3sue60ufz88n",
+    "complexName": "C.K밸리1",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "석전초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoinsnkq00063sv3l3u8acnr",
+    "complexId": "cmo9orvm806gg3sue60ufz88n",
+    "complexName": "C.K밸리1",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "북성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoio0lu7001k3sv3tjenbar9",
+    "complexId": "cmo9qqwmg0gzo3suenrf0wz9d",
+    "complexName": "개나리(285-1)",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "북성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoio0lwq001l3sv3tv9ci63u",
+    "complexId": "cmo9qqwmg0gzo3suenrf0wz9d",
+    "complexName": "개나리(285-1)",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "석전초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiocbp4003p3sv33hfe5mo2",
+    "complexId": "cmo9qfwzo0fee3sue7y6rgexr",
+    "complexName": "고구려1차주상복합",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "석전초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiocbmm003o3sv3phqfnkci",
+    "complexId": "cmo9qfwzo0fee3sue7y6rgexr",
+    "complexName": "고구려1차주상복합",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "북성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiprol400d63sv30q0vjjq1",
+    "complexId": "cmoa7ftcs24bi3suefdngbjij",
+    "complexName": "동림맨션나",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "합성동",
+    "schoolName": "합성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqpwk800je3sv3gghx2yx7",
+    "complexId": "cmo9sbuz60oyb3suenmaesyd3",
+    "complexName": "부영국민주택",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "석전초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqpwht00jd3sv3jb95sk3o",
+    "complexId": "cmo9sbuz60oyb3suenmaesyd3",
+    "complexName": "부영국민주택",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "북성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoirvtzp00pf3sv34oi8dtuq",
+    "complexId": "cmo9otewh06r73sueus45xzha",
+    "complexName": "세화A.P.T",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "구암동",
+    "schoolName": "구암초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoisr38500u43sv3d3b41cfq",
+    "complexId": "cmo9qs6030h6w3suelsjf81ca",
+    "complexName": "용문지오피",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "회원동",
+    "schoolName": "감천초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoisr35n00u33sv3d0sukh6g",
+    "complexId": "cmo9qs6030h6w3suelsjf81ca",
+    "complexName": "용문지오피",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "회원동",
+    "schoolName": "가고파초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiuol3p01713sv39l9d05jy",
+    "complexId": "cmo9otnpz06t03suelneoc74j",
+    "complexName": "팔육국민주택",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "회원동",
+    "schoolName": "가고파초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiuol6801723sv3bdtp3zwf",
+    "complexId": "cmo9otnpz06t03suelneoc74j",
+    "complexName": "팔육국민주택",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "회원동",
+    "schoolName": "감천초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiv31le019o3sv3fs6y033g",
+    "complexId": "cmo9ot06906od3sueclci5gka",
+    "complexName": "한성(1344)",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "구암동",
+    "schoolName": "구암초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivdgo401bn3sv3amk928f0",
+    "complexId": "cmo9sw48e0qtx3suepas0dgvv",
+    "complexName": "합성동림맨션가",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "합성동",
+    "schoolName": "합성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivtxje01eo3sv3qos8xfvo",
+    "complexId": "cmo9nxspq01g63suel98q6zhp",
+    "complexName": "황강빌라A동",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "구암동",
+    "schoolName": "구암초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivtydu01ep3sv3z2o135mu",
+    "complexId": "cmo9oscqo06jz3suel88hqgwp",
+    "complexName": "황강빌라B동",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "구암동",
+    "schoolName": "구암초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoipy9vt00e63sv3t3iqw1c2",
+    "complexId": "cmo9nuvv500rk3suec6vrjzoo",
+    "complexName": "동양물산기업(주)사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "남양초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoipy9yb00e73sv3k33tm8qe",
+    "complexId": "cmo9nuvv500rk3suec6vrjzoo",
+    "complexName": "동양물산기업(주)사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "성주초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq64um00fo3sv3a11s3xgh",
+    "complexId": "cmo9svfe70qq53suec0ok6wfc",
+    "complexName": "라원아파트",
+    "complexCity": "창원시 성산구",
+    "complexDong": "상남동",
+    "schoolName": "남양초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq64wx00fp3sv3yifjjtnm",
+    "complexId": "cmo9svfe70qq53suec0ok6wfc",
+    "complexName": "라원아파트",
+    "complexCity": "창원시 성산구",
+    "complexDong": "상남동",
+    "schoolName": "남정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoirve3200pd3sv3t1wv1o8z",
+    "complexId": "cmo9n917v00kaz8uehq36u3xw",
+    "complexName": "세방전지(주)사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "남양초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoirve5o00pe3sv3o4g0zfrr",
+    "complexId": "cmo9n917v00kaz8uehq36u3xw",
+    "complexName": "세방전지(주)사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "성주초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiusz3k017y3sv3vqgb5blv",
+    "complexId": "cmo9wwozi13ox3suelbgd18tp",
+    "complexName": "풍성전기사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "남양초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiusz63017z3sv31rjetryg",
+    "complexId": "cmo9wwozi13ox3suelbgd18tp",
+    "complexName": "풍성전기사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "성주초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiut02w01813sv33uwcb204",
+    "complexId": "cmo9wwznq13pd3suef3vao6ge",
+    "complexName": "풍성정밀사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "성주초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiut00f01803sv33x9bohy4",
+    "complexId": "cmo9wwznq13pd3suef3vao6ge",
+    "complexName": "풍성정밀사원",
+    "complexCity": "창원시 성산구",
+    "complexDong": "가음동",
+    "schoolName": "남양초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq9ews00g83sv3ka3k55x4",
+    "complexId": "cmo9p49ey08d43suedug6egt0",
+    "complexName": "리즈트",
+    "complexCity": "창원시 의창구",
+    "complexDong": "도계동",
+    "schoolName": "명도초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq9p2n00gb3sv3a1g8vbhp",
+    "complexId": "cmo9tky7b0sw53suetb28ccc4",
+    "complexName": "리코가든빌라",
+    "complexCity": "창원시 의창구",
+    "complexDong": "도계동",
+    "schoolName": "명도초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiq9tuw00gf3sv3cfe2jugn",
+    "complexId": "cmoa8x576290t3sueyzbz4aef",
+    "complexName": "리코빌리지",
+    "complexCity": "창원시 의창구",
+    "complexDong": "도계동",
+    "schoolName": "명도초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiqsoip00jx3sv3jtcuzz3t",
+    "complexId": "cmo9r9liw0jl23suetsw4acmh",
+    "complexName": "빨마데파트1",
+    "complexCity": "창원시 의창구",
+    "complexDong": "도계동",
+    "schoolName": "명도초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoit5rhs00wq3sv3t0tau1yq",
+    "complexId": "cmo9o7403030m3suemblyok26",
+    "complexName": "유성빌라(321-2)",
+    "complexCity": "창원시 의창구",
+    "complexDong": "도계동",
+    "schoolName": "명도초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivtz8j01eq3sv3389whn8g",
+    "complexId": "cmo9s07yj0ncm3sueiy7wdelr",
+    "complexName": "황제빌라3",
+    "complexCity": "창원시 의창구",
+    "complexDong": "도계동",
+    "schoolName": "명도초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiovwxy00803sv300uf353m",
+    "complexId": "cmo9rib540kw73sue8tm9pijg",
+    "complexName": "남성파크A",
+    "complexCity": "창원시 진해구",
+    "complexDong": "경화동",
+    "schoolName": "경화초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoioyev9008f3sv3lc3fhgar",
+    "complexId": "cmo9u6mqc0uyq3sue1ycwjaky",
+    "complexName": "내일큰골마을",
+    "complexCity": "창원시 진해구",
+    "complexDong": "용원동",
+    "schoolName": "용원초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoipetb200b13sv3vapaamdv",
+    "complexId": "cmo9s49am0nxu3suee6cp53a7",
+    "complexName": "대신빌라(39-3)",
+    "complexCity": "창원시 진해구",
+    "complexDong": "여좌동",
+    "schoolName": "대야초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiuiq9a016b3sv3v3pf3g7o",
+    "complexId": "cmo9v7b980ycz3suek7bz33lz",
+    "complexName": "초원빌라(1468-2)",
+    "complexCity": "창원시 진해구",
+    "complexDong": "경화동",
+    "schoolName": "경화초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiuir3l016c3sv365fcsq1j",
+    "complexId": "cmo9rj5ou0l0u3sue8agyss4m",
+    "complexName": "초원빌라(923)",
+    "complexCity": "창원시 진해구",
+    "complexDong": "경화동",
+    "schoolName": "경화초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoiuxrw9018q3sv3p3vs26e8",
+    "complexId": "cmo9ovwl7077y3suej1m4h22k",
+    "complexName": "한동더푸름",
+    "complexCity": "창원시 진해구",
+    "complexDong": "경화동",
+    "schoolName": "경화초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmoivon4e01dh3sv3udbprlyl",
+    "complexId": "cmo9q3svz0doq3suezxuq4555",
+    "complexName": "혜성빌라(848-5)",
+    "complexCity": "창원시 진해구",
+    "complexDong": "경화동",
+    "schoolName": "경화초등학교",
+    "distance": 500,
+    "isEstimated": true
+  }
+]

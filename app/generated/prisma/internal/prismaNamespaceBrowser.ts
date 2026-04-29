@@ -61,7 +61,9 @@ export const ModelName = {
   RecordHighHistory: 'RecordHighHistory',
   Advertiser: 'Advertiser',
   ApartmentAdvertiser: 'ApartmentAdvertiser',
-  CancellationLog: 'CancellationLog'
+  CancellationLog: 'CancellationLog',
+  ComplexView: 'ComplexView',
+  ComplexReview: 'ComplexReview'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -111,7 +113,15 @@ export const ApartmentComplexScalarFieldEnum = {
   latitude: 'latitude',
   longitude: 'longitude',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  mapPriorityScore: 'mapPriorityScore',
+  hasRecentCancellation: 'hasRecentCancellation',
+  recentRecordHighAt: 'recentRecordHighAt',
+  trendScore: 'trendScore',
+  reviewCount: 'reviewCount',
+  representativePrice: 'representativePrice',
+  representativeArea: 'representativeArea',
+  mapDataUpdatedAt: 'mapDataUpdatedAt'
 } as const
 
 export type ApartmentComplexScalarFieldEnum = (typeof ApartmentComplexScalarFieldEnum)[keyof typeof ApartmentComplexScalarFieldEnum]
@@ -257,6 +267,29 @@ export const CancellationLogScalarFieldEnum = {
 } as const
 
 export type CancellationLogScalarFieldEnum = (typeof CancellationLogScalarFieldEnum)[keyof typeof CancellationLogScalarFieldEnum]
+
+
+export const ComplexViewScalarFieldEnum = {
+  id: 'id',
+  complexId: 'complexId',
+  sessionId: 'sessionId',
+  viewedAt: 'viewedAt'
+} as const
+
+export type ComplexViewScalarFieldEnum = (typeof ComplexViewScalarFieldEnum)[keyof typeof ComplexViewScalarFieldEnum]
+
+
+export const ComplexReviewScalarFieldEnum = {
+  id: 'id',
+  complexId: 'complexId',
+  authorName: 'authorName',
+  content: 'content',
+  rating: 'rating',
+  isVerified: 'isVerified',
+  createdAt: 'createdAt'
+} as const
+
+export type ComplexReviewScalarFieldEnum = (typeof ComplexReviewScalarFieldEnum)[keyof typeof ComplexReviewScalarFieldEnum]
 
 
 export const SortOrder = {

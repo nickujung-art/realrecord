@@ -65,6 +65,13 @@ NEIS_API_KEY=<학교알리미 NEIS API 키>
 
 # 선택 (학교 서버사이드 지오코딩 정밀도 향상) — REST 키 ≠ JS 키
 KAKAO_REST_API_KEY=<카카오 REST API 키>
+
+# Vercel Cron 인증 — Vercel 대시보드 > Settings > Environment Variables에 반드시 설정
+# Vercel이 Cron 요청 시 Authorization: Bearer <CRON_SECRET>을 자동으로 전송함
+CRON_SECRET=<임의의 강력한 랜덤 문자열>
+
+# 수동 curl 테스트용 (CRON_SECRET과 같은 값으로 설정하거나 별도 관리 가능)
+INGEST_SECRET=<CRON_SECRET과 동일하거나 별도 값>
 ```
 
 ---

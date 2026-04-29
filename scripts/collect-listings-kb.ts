@@ -9,11 +9,11 @@
  * - 실패 단지는 건너뛰고 계속 진행, 최종 요약에 기록
  */
 
-import { loadEnvConfig } from "@next/env";
+import * as dotenv from "dotenv";
+import * as path from "path";
 import puppeteer from "puppeteer";
-import { prisma } from "../lib/db";
 
-loadEnvConfig(process.cwd());
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 const DELAY_MS = 3000;
 const PAGE_LOAD_WAIT_MS = 6000;
@@ -83,6 +83,7 @@ function todayMidnight(): Date {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
+  const { prisma } = await import("../lib/db.js");
   const startedAt = Date.now();
 
   console.log("\n═══════════════════════════════════════════════════");

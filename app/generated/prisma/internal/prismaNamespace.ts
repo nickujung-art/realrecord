@@ -394,7 +394,9 @@ export const ModelName = {
   RecordHighHistory: 'RecordHighHistory',
   Advertiser: 'Advertiser',
   ApartmentAdvertiser: 'ApartmentAdvertiser',
-  CancellationLog: 'CancellationLog'
+  CancellationLog: 'CancellationLog',
+  ComplexView: 'ComplexView',
+  ComplexReview: 'ComplexReview'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -410,7 +412,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "apartmentComplex" | "transaction" | "rentRecord" | "listingStats" | "schoolInfo" | "maintenanceFee" | "recordHighPrice" | "recordHighHistory" | "advertiser" | "apartmentAdvertiser" | "cancellationLog"
+    modelProps: "apartmentComplex" | "transaction" | "rentRecord" | "listingStats" | "schoolInfo" | "maintenanceFee" | "recordHighPrice" | "recordHighHistory" | "advertiser" | "apartmentAdvertiser" | "cancellationLog" | "complexView" | "complexReview"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1228,6 +1230,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ComplexView: {
+      payload: Prisma.$ComplexViewPayload<ExtArgs>
+      fields: Prisma.ComplexViewFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ComplexViewFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ComplexViewFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>
+        }
+        findFirst: {
+          args: Prisma.ComplexViewFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ComplexViewFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>
+        }
+        findMany: {
+          args: Prisma.ComplexViewFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>[]
+        }
+        create: {
+          args: Prisma.ComplexViewCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>
+        }
+        createMany: {
+          args: Prisma.ComplexViewCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ComplexViewCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>[]
+        }
+        delete: {
+          args: Prisma.ComplexViewDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>
+        }
+        update: {
+          args: Prisma.ComplexViewUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>
+        }
+        deleteMany: {
+          args: Prisma.ComplexViewDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ComplexViewUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ComplexViewUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>[]
+        }
+        upsert: {
+          args: Prisma.ComplexViewUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexViewPayload>
+        }
+        aggregate: {
+          args: Prisma.ComplexViewAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateComplexView>
+        }
+        groupBy: {
+          args: Prisma.ComplexViewGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ComplexViewGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ComplexViewCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ComplexViewCountAggregateOutputType> | number
+        }
+      }
+    }
+    ComplexReview: {
+      payload: Prisma.$ComplexReviewPayload<ExtArgs>
+      fields: Prisma.ComplexReviewFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ComplexReviewFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ComplexReviewFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>
+        }
+        findFirst: {
+          args: Prisma.ComplexReviewFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ComplexReviewFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>
+        }
+        findMany: {
+          args: Prisma.ComplexReviewFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>[]
+        }
+        create: {
+          args: Prisma.ComplexReviewCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>
+        }
+        createMany: {
+          args: Prisma.ComplexReviewCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ComplexReviewCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>[]
+        }
+        delete: {
+          args: Prisma.ComplexReviewDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>
+        }
+        update: {
+          args: Prisma.ComplexReviewUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>
+        }
+        deleteMany: {
+          args: Prisma.ComplexReviewDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ComplexReviewUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ComplexReviewUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>[]
+        }
+        upsert: {
+          args: Prisma.ComplexReviewUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ComplexReviewPayload>
+        }
+        aggregate: {
+          args: Prisma.ComplexReviewAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateComplexReview>
+        }
+        groupBy: {
+          args: Prisma.ComplexReviewGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ComplexReviewGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ComplexReviewCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ComplexReviewCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1298,7 +1448,15 @@ export const ApartmentComplexScalarFieldEnum = {
   latitude: 'latitude',
   longitude: 'longitude',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  mapPriorityScore: 'mapPriorityScore',
+  hasRecentCancellation: 'hasRecentCancellation',
+  recentRecordHighAt: 'recentRecordHighAt',
+  trendScore: 'trendScore',
+  reviewCount: 'reviewCount',
+  representativePrice: 'representativePrice',
+  representativeArea: 'representativeArea',
+  mapDataUpdatedAt: 'mapDataUpdatedAt'
 } as const
 
 export type ApartmentComplexScalarFieldEnum = (typeof ApartmentComplexScalarFieldEnum)[keyof typeof ApartmentComplexScalarFieldEnum]
@@ -1444,6 +1602,29 @@ export const CancellationLogScalarFieldEnum = {
 } as const
 
 export type CancellationLogScalarFieldEnum = (typeof CancellationLogScalarFieldEnum)[keyof typeof CancellationLogScalarFieldEnum]
+
+
+export const ComplexViewScalarFieldEnum = {
+  id: 'id',
+  complexId: 'complexId',
+  sessionId: 'sessionId',
+  viewedAt: 'viewedAt'
+} as const
+
+export type ComplexViewScalarFieldEnum = (typeof ComplexViewScalarFieldEnum)[keyof typeof ComplexViewScalarFieldEnum]
+
+
+export const ComplexReviewScalarFieldEnum = {
+  id: 'id',
+  complexId: 'complexId',
+  authorName: 'authorName',
+  content: 'content',
+  rating: 'rating',
+  isVerified: 'isVerified',
+  createdAt: 'createdAt'
+} as const
+
+export type ComplexReviewScalarFieldEnum = (typeof ComplexReviewScalarFieldEnum)[keyof typeof ComplexReviewScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1682,6 +1863,8 @@ export type GlobalOmitConfig = {
   advertiser?: Prisma.AdvertiserOmit
   apartmentAdvertiser?: Prisma.ApartmentAdvertiserOmit
   cancellationLog?: Prisma.CancellationLogOmit
+  complexView?: Prisma.ComplexViewOmit
+  complexReview?: Prisma.ComplexReviewOmit
 }
 
 /* Types for Logging */

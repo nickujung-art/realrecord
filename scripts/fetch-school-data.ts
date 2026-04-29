@@ -91,7 +91,7 @@ async function fetchNeisSchools(): Promise<NeisSchool[]> {
   if (!NEIS_API_KEY) {
     throw new Error(
       "NEIS_API_KEY 환경변수가 설정되지 않았습니다.\n" +
-        "  https://open.neis.go.kr 에서 인증키를 발급받아 .env.local에 추가하세요.",
+      "  https://open.neis.go.kr 에서 인증키를 발급받아 .env.local에 추가하세요.",
     );
   }
 

@@ -70,33 +70,52 @@ export async function getDashboardData(): Promise<DashboardResponse> {
     };
   }
 
-  // 최근 갱신된 신고가 — RecordHighPrice를 recordSetAt 최신순으로 15개
-  const latestRecordHighs = await prisma.recordHighPrice.findMany({
-    orderBy: { recordSetAt: "desc" },
-    take: 15,
+  // 최근 갱신된 신고가 — 복합 스코어 정렬: 상승률 × log(세대수) × 신선도
+  const ninetyDaysAgo = getDaysAgoDate(90);
+  let pool = await prisma.recordHighPrice.findMany({
+    where: { recordSetAt: { gte: ninetyDaysAgo } },
+    take: 80,
     include: { complex: true },
   });
+  // 90일치 풀이 너무 적으면 전체 최신순 폴백
+  if (pool.length < 5) {
+    pool = await prisma.recordHighPrice.findMany({
+      orderBy: { recordSetAt: "desc" },
+      take: 60,
+      include: { complex: true },
+    });
+  }
 
-  const recordBreakers: RecordBreakerItem[] = latestRecordHighs.map((rh) => {
+  const now = Date.now();
+  const scored = pool.map((rh) => {
     const priceDelta = rh.previousPrice != null ? rh.currentPrice - rh.previousPrice : 0;
     const deltaPercent =
       rh.previousPrice != null && rh.previousPrice > 0
         ? Math.round((priceDelta / rh.previousPrice) * 1000) / 10
         : 0;
-    return {
-      complexId: rh.complexId,
-      complexName: rh.complex.name,
-      dong: rh.complex.dong,
-      areaPyeong: rh.areaPyeong,
-      newPrice: rh.currentPrice,
-      previousPrice: rh.previousPrice ?? 0,
-      priceDelta,
-      deltaPercent,
-      contractDate: rh.recordSetAt.toISOString(),
-      directDeal: false,
-      hasWarning: warningSet.has(rh.complexId),
-    };
+    const households = rh.complex.totalHouseholds ?? 10;
+    const daysSince = (now - rh.recordSetAt.getTime()) / 86_400_000;
+    // 신선도 가중치: 오늘=1.0, 30일후≈0.37 (자연감쇄)
+    const freshness = Math.exp(-daysSince / 30);
+    const compositeScore = Math.abs(deltaPercent) * Math.log(Math.max(households, 10)) * freshness;
+    return { rh, priceDelta, deltaPercent, compositeScore };
   });
+
+  scored.sort((a, b) => b.compositeScore - a.compositeScore);
+
+  const recordBreakers: RecordBreakerItem[] = scored.slice(0, 15).map(({ rh, priceDelta, deltaPercent }) => ({
+    complexId: rh.complexId,
+    complexName: rh.complex.name,
+    dong: rh.complex.dong,
+    areaPyeong: rh.areaPyeong,
+    newPrice: rh.currentPrice,
+    previousPrice: rh.previousPrice ?? 0,
+    priceDelta,
+    deltaPercent,
+    contractDate: rh.recordSetAt.toISOString(),
+    directDeal: false,
+    hasWarning: warningSet.has(rh.complexId),
+  }));
 
   // 통계 — 최근 거래일 기준 + 취소는 최근 7일 감지 기준
   const [latestTxCount, latestRecordCount, recentCancelCount, totalComplexCount] =

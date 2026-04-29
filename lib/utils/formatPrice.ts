@@ -54,3 +54,15 @@ export function formatAreaDisplay(pyeong: number): string {
   const sqm = Math.round(pyeong * 3.305785);
   return `${sqm}㎡ (${pyeong}평)`;
 }
+
+// 지도 마커 전용 초간략 표기 (가독성 최우선)
+// 85000 → "8.5억", 130000 → "13억", 9500 → "9,500만", 500 → "500만"
+export function formatMapPrice(manwon: number): string {
+  if (manwon >= 10000) {
+    const eok = manwon / 10000;
+    // 소수점 1자리까지만, 불필요한 .0은 제거 (13.0억 → 13억)
+    const rounded = Math.round(eok * 10) / 10;
+    return `${rounded}억`;
+  }
+  return `${manwon.toLocaleString("ko-KR")}만`;
+}

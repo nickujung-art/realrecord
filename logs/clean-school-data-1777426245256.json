@@ -1,0 +1,92 @@
+[
+  {
+    "schoolInfoId": "cmojdeccp000z3cueshk1jadk",
+    "complexId": "cmo819tcy00kptkuenkelawj0",
+    "complexName": "갑오마을1단지대우푸르지오3",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojdepi500143cueeov51hb1",
+    "complexId": "cmo818uh900b3tkuemb3fj31w",
+    "complexName": "갑오마을4단지부영8차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojdeqct00153cuec7ldeajm",
+    "complexId": "cmo81htq6021jtkue4adq9b7p",
+    "complexName": "갑오마을5단지부영6차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojdexd700183cueqdo2a28q",
+    "complexId": "cmo819uau00kytkue2cnjls5u",
+    "complexName": "갑오마을7단지부영10차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojdey8000193cueptpe6a1l",
+    "complexId": "cmo81gxcl01wftkueyxq06jar",
+    "complexName": "갑오마을8단지대우푸르지오2차",
+    "complexCity": "김해시",
+    "complexDong": "대청동",
+    "schoolName": "덕정초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojd7uls00063cuej2lqqove",
+    "complexId": "cmo9orvm806gg3sue60ufz88n",
+    "complexName": "C.K밸리1",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "북성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojd7uok00073cueczh8p4ys",
+    "complexId": "cmo9orvm806gg3sue60ufz88n",
+    "complexName": "C.K밸리1",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "석전초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojdg65t001m3cueq7zkbcjq",
+    "complexId": "cmo9qqwmg0gzo3suenrf0wz9d",
+    "complexName": "개나리(285-1)",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "북성초등학교",
+    "distance": 500,
+    "isEstimated": true
+  },
+  {
+    "schoolInfoId": "cmojdg68s001n3cuezxzlp4ks",
+    "complexId": "cmo9qqwmg0gzo3suenrf0wz9d",
+    "complexName": "개나리(285-1)",
+    "complexCity": "창원시 마산회원구",
+    "complexDong": "석전동",
+    "schoolName": "석전초등학교",
+    "distance": 500,
+    "isEstimated": true
+  }
+]

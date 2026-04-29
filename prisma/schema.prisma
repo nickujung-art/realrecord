@@ -1,10 +1,15 @@
+// prisma/schema.prisma
+
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider        = "prisma-client"
+  previewFeatures = ["driverAdapters"]
+  output          = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+  // [수정] url과 directUrl 줄을 아예 삭제합니다! 
+  // 이제 이 정보는 prisma.config.ts가 책임집니다.
 }
 
 // ─── 아파트 단지 마스터 데이터 ────────────────────────────────────
@@ -51,6 +56,16 @@ model ApartmentComplex {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
+  // ── [지도 마커 우선순위 — compute-map-priority.ts Cron이 갱신] ──────
+  mapPriorityScore      Float    @default(0)   // 광고+신고가+트렌드 합산 점수
+  hasRecentCancellation Boolean  @default(false) // 최근 7일 취소 감지 여부
+  recentRecordHighAt    DateTime?               // 최근 신고가 계약일
+  trendScore            Float    @default(0)   // 조회수 기반 트렌드 점수 (cap 200)
+  reviewCount           Int      @default(0)   // 리뷰 수 (💬 뱃지용)
+  representativePrice   Int?                   // 대표 매매가 (만원, 가장 최근 신고가)
+  representativeArea    String?                // 대표 평형 문자열 e.g. "24평"
+  mapDataUpdatedAt      DateTime?              // 마지막 우선순위 갱신 시각
+
   transactions     Transaction[]
   recordHighs      RecordHighPrice[]
   advertisers      ApartmentAdvertiser[]
@@ -58,9 +73,12 @@ model ApartmentComplex {
   listingStats     ListingStats[]
   schoolInfos      SchoolInfo[]
   maintenanceFees  MaintenanceFee[]
+  views            ComplexView[]
+  reviews          ComplexReview[]
 
   @@index([city, dong])
   @@index([nameChosung])
+  @@index([mapPriorityScore(sort: Desc)])
 }
 
 // ─── 실거래 개별 건 (MOLIT API 원본, 매매 전용) ────────────────────
@@ -247,4 +265,30 @@ model CancellationLog {
 
   @@index([complexId, areaPyeong])
   @@index([detectedAt])
+}
+
+// ─── 단지 조회 이력 (트렌드 스코어 집계 소스) ────────────────────
+model ComplexView {
+  id        String           @id @default(cuid())
+  complexId String
+  complex   ApartmentComplex @relation(fields: [complexId], references: [id])
+  sessionId String           // 브라우저 세션 ID (중복 방지)
+  viewedAt  DateTime         @default(now())
+
+  @@unique([sessionId, complexId])  // 세션당 단지 1카운트
+  @@index([complexId, viewedAt])
+}
+
+// ─── 단지 현장 리뷰 (💬 뱃지 + 상세페이지 노출) ─────────────────
+model ComplexReview {
+  id         String           @id @default(cuid())
+  complexId  String
+  complex    ApartmentComplex @relation(fields: [complexId], references: [id])
+  authorName String
+  content    String
+  rating     Int              // 1–5점
+  isVerified Boolean          @default(false) // 현장 인증 리뷰어 여부
+  createdAt  DateTime         @default(now())
+
+  @@index([complexId])
 }

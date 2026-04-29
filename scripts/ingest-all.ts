@@ -21,13 +21,9 @@ async function main() {
   const { prisma } = await import("../lib/db.js");
 
   const now = new Date();
-  const year = parseInt(
-    process.argv[2] ??
-      String(now.getUTCMonth() === 0 ? now.getUTCFullYear() - 1 : now.getUTCFullYear()),
-  );
-  const month = parseInt(
-    process.argv[3] ?? String(now.getUTCMonth() === 0 ? 12 : now.getUTCMonth()),
-  );
+  // getUTCMonth()는 0-indexed → +1 필요 (April = 3 → 4)
+  const year = parseInt(process.argv[2] ?? String(now.getUTCFullYear()));
+  const month = parseInt(process.argv[3] ?? String(now.getUTCMonth() + 1));
 
   const period = `${year}-${String(month).padStart(2, "0")}`;
   console.log(`\n═══════════════════════════════════════════════════`);

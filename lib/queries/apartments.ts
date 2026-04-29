@@ -75,22 +75,48 @@ export async function getApartmentDetail(
     ]);
 
   // Gap price: latest sale minus latest rent for the requested pyeong
+  // Fallback: 3mo → 6mo → 12mo window. Beyond 3 months = stale flag.
   let gapPrice: number | null = null;
+  let gapPriceIsOld = false;
   if (pyeong) {
-    const [latestSale, latestRent] = await Promise.all([
-      prisma.transaction.findFirst({
-        where: { complexId: id, areaPyeong: pyeong, cancelFlag: false },
+    const latestSale = await prisma.transaction.findFirst({
+      where: { complexId: id, areaPyeong: pyeong, cancelFlag: false },
+      orderBy: { contractDate: "desc" },
+      select: { priceManwon: true },
+    });
+
+    if (latestSale) {
+      const threeMonthsAgo = getDaysAgoDate(90);
+      const sixMonthsAgo = getDaysAgoDate(180);
+      const twelveMonthsAgo = getDaysAgoDate(365);
+
+      let latestRent = await prisma.rentRecord.findFirst({
+        where: { complexId: id, areaPyeong: pyeong, contractDate: { gte: threeMonthsAgo } },
         orderBy: { contractDate: "desc" },
         select: { priceManwon: true },
-      }),
-      prisma.rentRecord.findFirst({
-        where: { complexId: id, areaPyeong: pyeong },
-        orderBy: { contractDate: "desc" },
-        select: { priceManwon: true },
-      }),
-    ]);
-    if (latestSale && latestRent) {
-      gapPrice = latestSale.priceManwon - latestRent.priceManwon;
+      });
+
+      if (!latestRent) {
+        latestRent = await prisma.rentRecord.findFirst({
+          where: { complexId: id, areaPyeong: pyeong, contractDate: { gte: sixMonthsAgo } },
+          orderBy: { contractDate: "desc" },
+          select: { priceManwon: true },
+        });
+        if (latestRent) gapPriceIsOld = true;
+      }
+
+      if (!latestRent) {
+        latestRent = await prisma.rentRecord.findFirst({
+          where: { complexId: id, areaPyeong: pyeong, contractDate: { gte: twelveMonthsAgo } },
+          orderBy: { contractDate: "desc" },
+          select: { priceManwon: true },
+        });
+        if (latestRent) gapPriceIsOld = true;
+      }
+
+      if (latestRent) {
+        gapPrice = latestSale.priceManwon - latestRent.priceManwon;
+      }
     }
   }
 
@@ -132,6 +158,19 @@ export async function getApartmentDetail(
     `lat=${complex.latitude ?? "null"} lng=${complex.longitude ?? "null"} ` +
     `schoolInfos=${rawSchoolInfos.length}개 → 그룹화 ${groupedSchools.length}개`
   );
+
+  // Build year: extracted from K-APT detailedRawData (kaptUsedate = "YYYYMMDD")
+  let buildYear: number | null = null;
+  if (complex.detailedRawData && typeof complex.detailedRawData === "object" && !Array.isArray(complex.detailedRawData)) {
+    const raw = complex.detailedRawData as Record<string, unknown>;
+    const dateStr = String(raw.kaptUsedate ?? raw.useAprDay ?? raw.kaptdAcnt ?? "");
+    if (dateStr.length >= 4) {
+      const parsed = parseInt(dateStr.slice(0, 4), 10);
+      if (!isNaN(parsed) && parsed > 1950 && parsed <= new Date().getFullYear()) {
+        buildYear = parsed;
+      }
+    }
+  }
 
   return {
     complex: {
@@ -191,6 +230,8 @@ export async function getApartmentDetail(
       linkUrl: link.advertiser.linkUrl,
     })),
     gapPrice,
+    gapPriceIsOld,
+    buildYear,
     listingStats,
     schoolInfos: groupedSchools.map((s): SchoolInfoSummary => ({
       id: s.id,

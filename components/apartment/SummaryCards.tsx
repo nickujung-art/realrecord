@@ -5,6 +5,7 @@ interface SummaryCardsProps {
   complexName: string;
   selectedPyeong: number;
   gapPrice: number | null;
+  gapPriceIsOld?: boolean;
   naverHscpNo: string | null;
   kbComplexNo: string | null;
 }
@@ -14,11 +15,13 @@ function CardRow({
   label,
   value,
   valueClass,
+  note,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   valueClass?: string;
+  note?: string | null;
 }) {
   return (
     <div className="flex items-center gap-3 py-2.5">
@@ -26,7 +29,10 @@ function CardRow({
         {icon}
       </div>
       <span className="flex-1 text-sm text-slate-700">{label}</span>
-      <span className={`text-sm font-bold ${valueClass ?? "text-slate-700"}`}>{value}</span>
+      <div className="text-right">
+        <span className={`text-sm font-bold ${valueClass ?? "text-slate-700"}`}>{value}</span>
+        {note && <p className="text-[10px] text-slate-400 mt-0.5">{note}</p>}
+      </div>
     </div>
   );
 }
@@ -122,6 +128,7 @@ export function SummaryCards({
   complexName: _,
   selectedPyeong,
   gapPrice,
+  gapPriceIsOld = false,
   naverHscpNo,
   kbComplexNo,
 }: SummaryCardsProps) {
@@ -133,6 +140,9 @@ export function SummaryCards({
   const gapPriceClass = gapPrice !== null
     ? "text-price font-bold text-primary-900"
     : "text-slate-400 text-xs font-medium";
+  const gapPriceNote = gapPrice !== null && gapPriceIsOld
+    ? "최근 1년 기준 (구 데이터)"
+    : null;
 
   const naverUrl = naverHscpNo
     ? `https://fin.land.naver.com/complexes/${naverHscpNo}`
@@ -156,6 +166,7 @@ export function SummaryCards({
           label="현재 갭 가격"
           value={gapPriceValue}
           valueClass={gapPriceClass}
+          note={gapPriceNote}
         />
         <ListingLinksRow naverUrl={naverUrl} kbUrl={kbUrl} />
       </div>

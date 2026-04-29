@@ -11,7 +11,10 @@ const TARGETS = [
 // Authorization: Bearer <CRON_SECRET> 헤더 필수
 export async function GET(req: NextRequest) {
   const token = req.headers.get("authorization")?.replace("Bearer ", "") ?? null;
-  if (!token || token !== process.env.INGEST_SECRET) {
+  // Vercel Cron은 Authorization: Bearer <CRON_SECRET>을 자동 전송함
+  // INGEST_SECRET은 수동 curl 호출용 fallback
+  const expectedToken = process.env.CRON_SECRET ?? process.env.INGEST_SECRET;
+  if (!token || !expectedToken || token !== expectedToken) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

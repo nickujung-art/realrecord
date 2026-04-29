@@ -124,7 +124,7 @@ export default async function ApartmentPage({ params, searchParams }: ApartmentP
   const data = await getApartmentDetail(id, requestedPyeong);
   if (!data) notFound();
 
-  const { complex, recordHighs, recentTransactions, priceHistory, cancellationCount, advertisers, gapPrice, schoolInfos } = data;
+  const { complex, recordHighs, recentTransactions, priceHistory, cancellationCount, advertisers, gapPrice, gapPriceIsOld, buildYear, schoolInfos } = data;
 
   // Derive the most-traded area as the default, then validate the URL param against real data
   const areaCount = new Map<number, number>();
@@ -253,6 +253,7 @@ export default async function ApartmentPage({ params, searchParams }: ApartmentP
           complexName={complex.name}
           selectedPyeong={selectedPyeong}
           gapPrice={gapPrice}
+          gapPriceIsOld={gapPriceIsOld}
           naverHscpNo={complex.naverHscpNo}
           kbComplexNo={complex.kbComplexNo}
         />
@@ -260,9 +261,13 @@ export default async function ApartmentPage({ params, searchParams }: ApartmentP
         {/* 에듀 & 리빙: 관리비(평형별) + 학군 */}
         <ComplexConditionBento
           complexId={complex.id}
+          complexName={complex.name}
           targetArea={targetAreaSqm}
           selectedPyeong={selectedPyeong}
           schoolInfos={schoolInfos}
+          parkingCount={complex.parkingCount}
+          totalHouseholds={complex.totalHouseholds}
+          buildYear={buildYear}
         />
 
         {/* 가격 추이 차트 */}

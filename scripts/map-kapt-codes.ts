@@ -1,7 +1,7 @@
-import { loadEnvConfig } from "@next/env";
-import { prisma } from "../lib/db";
+import * as dotenv from "dotenv";
+import * as path from "path";
 
-loadEnvConfig(process.cwd());
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
 const API_KEY = process.env.PUBLIC_DATA_API_KEY ?? "";
 const KAPT_BASE = "https://apis.data.go.kr/1613000/AptListService3/getSigunguAptList3";
@@ -49,6 +49,8 @@ async function fetchKaptPage(sigunguCode: string, pageNo: number): Promise<KaptI
 
 // ── 메인 로직 ─────────────────────────────────────────────────────────────────
 async function main() {
+  const { prisma } = await import("../lib/db.js");
+
   if (!API_KEY) {
     console.error("\n❌ PUBLIC_DATA_API_KEY가 없습니다.\n");
     process.exit(1);

@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { Crown, Users } from "lucide-react";
 import { SearchBar } from "@/components/search/SearchBar";
 import { KingOfDayCard } from "@/components/dashboard/KingOfDayCard";
 import { RecordBreakerList } from "@/components/dashboard/RecordBreakerList";
@@ -18,11 +19,11 @@ async function DashboardContent() {
 
   const latestDateLabel = data.latestTransactionDate
     ? new Date(data.latestTransactionDate).toLocaleDateString("ko-KR", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        weekday: "short",
-      })
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      weekday: "short",
+    })
     : "최근";
 
   return (
@@ -32,8 +33,9 @@ async function DashboardContent() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mt-1">
         <div className="lg:col-span-2">
           <SectionHeader
-            title="King of the Day"
-            subtitle={`${latestDateLabel} 최고가 거래`}
+            title="오늘의 최고가"
+            subtitle={`${latestDateLabel} 거래`}
+            icon={<Crown size={14} strokeWidth={1.5} />}
           />
           <KingOfDayCard data={data.kingOfDay} />
         </div>
@@ -47,6 +49,7 @@ async function DashboardContent() {
         <SectionHeader
           title="우리 동네 프리미엄 중개사"
           subtitle="창원·김해 현장 전문가와 직접 연결하세요"
+          icon={<Users size={14} strokeWidth={1.5} />}
         />
         <PremiumAgents />
       </div>
@@ -59,8 +62,8 @@ export default function HomePage() {
     <main className="min-h-screen bg-surface">
       <GlobalHeader />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 space-y-5">
-        <div className="text-center pt-2 pb-1">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-5 pb-20 sm:pb-5 space-y-5">
+        <div className="pt-2 pb-1">
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 break-keep">
             창원·김해 부동산의{" "}
             <span className="text-primary-700">심장박동</span>을 읽다

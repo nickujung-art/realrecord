@@ -72,3 +72,13 @@ export type ApartmentAdvertiser = Prisma.ApartmentAdvertiserModel
  * 
  */
 export type CancellationLog = Prisma.CancellationLogModel
+/**
+ * Model ComplexView
+ * 
+ */
+export type ComplexView = Prisma.ComplexViewModel
+/**
+ * Model ComplexReview
+ * 
+ */
+export type ComplexReview = Prisma.ComplexReviewModel

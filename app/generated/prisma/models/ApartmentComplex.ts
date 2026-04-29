@@ -37,6 +37,10 @@ export type ApartmentComplexAvgAggregateOutputType = {
   cctvCount: number | null
   latitude: number | null
   longitude: number | null
+  mapPriorityScore: number | null
+  trendScore: number | null
+  reviewCount: number | null
+  representativePrice: number | null
 }
 
 export type ApartmentComplexSumAggregateOutputType = {
@@ -50,6 +54,10 @@ export type ApartmentComplexSumAggregateOutputType = {
   cctvCount: number | null
   latitude: number | null
   longitude: number | null
+  mapPriorityScore: number | null
+  trendScore: number | null
+  reviewCount: number | null
+  representativePrice: number | null
 }
 
 export type ApartmentComplexMinAggregateOutputType = {
@@ -83,6 +91,14 @@ export type ApartmentComplexMinAggregateOutputType = {
   longitude: number | null
   createdAt: Date | null
   updatedAt: Date | null
+  mapPriorityScore: number | null
+  hasRecentCancellation: boolean | null
+  recentRecordHighAt: Date | null
+  trendScore: number | null
+  reviewCount: number | null
+  representativePrice: number | null
+  representativeArea: string | null
+  mapDataUpdatedAt: Date | null
 }
 
 export type ApartmentComplexMaxAggregateOutputType = {
@@ -116,6 +132,14 @@ export type ApartmentComplexMaxAggregateOutputType = {
   longitude: number | null
   createdAt: Date | null
   updatedAt: Date | null
+  mapPriorityScore: number | null
+  hasRecentCancellation: boolean | null
+  recentRecordHighAt: Date | null
+  trendScore: number | null
+  reviewCount: number | null
+  representativePrice: number | null
+  representativeArea: string | null
+  mapDataUpdatedAt: Date | null
 }
 
 export type ApartmentComplexCountAggregateOutputType = {
@@ -150,6 +174,14 @@ export type ApartmentComplexCountAggregateOutputType = {
   longitude: number
   createdAt: number
   updatedAt: number
+  mapPriorityScore: number
+  hasRecentCancellation: number
+  recentRecordHighAt: number
+  trendScore: number
+  reviewCount: number
+  representativePrice: number
+  representativeArea: number
+  mapDataUpdatedAt: number
   _all: number
 }
 
@@ -165,6 +197,10 @@ export type ApartmentComplexAvgAggregateInputType = {
   cctvCount?: true
   latitude?: true
   longitude?: true
+  mapPriorityScore?: true
+  trendScore?: true
+  reviewCount?: true
+  representativePrice?: true
 }
 
 export type ApartmentComplexSumAggregateInputType = {
@@ -178,6 +214,10 @@ export type ApartmentComplexSumAggregateInputType = {
   cctvCount?: true
   latitude?: true
   longitude?: true
+  mapPriorityScore?: true
+  trendScore?: true
+  reviewCount?: true
+  representativePrice?: true
 }
 
 export type ApartmentComplexMinAggregateInputType = {
@@ -211,6 +251,14 @@ export type ApartmentComplexMinAggregateInputType = {
   longitude?: true
   createdAt?: true
   updatedAt?: true
+  mapPriorityScore?: true
+  hasRecentCancellation?: true
+  recentRecordHighAt?: true
+  trendScore?: true
+  reviewCount?: true
+  representativePrice?: true
+  representativeArea?: true
+  mapDataUpdatedAt?: true
 }
 
 export type ApartmentComplexMaxAggregateInputType = {
@@ -244,6 +292,14 @@ export type ApartmentComplexMaxAggregateInputType = {
   longitude?: true
   createdAt?: true
   updatedAt?: true
+  mapPriorityScore?: true
+  hasRecentCancellation?: true
+  recentRecordHighAt?: true
+  trendScore?: true
+  reviewCount?: true
+  representativePrice?: true
+  representativeArea?: true
+  mapDataUpdatedAt?: true
 }
 
 export type ApartmentComplexCountAggregateInputType = {
@@ -278,6 +334,14 @@ export type ApartmentComplexCountAggregateInputType = {
   longitude?: true
   createdAt?: true
   updatedAt?: true
+  mapPriorityScore?: true
+  hasRecentCancellation?: true
+  recentRecordHighAt?: true
+  trendScore?: true
+  reviewCount?: true
+  representativePrice?: true
+  representativeArea?: true
+  mapDataUpdatedAt?: true
   _all?: true
 }
 
@@ -399,6 +463,14 @@ export type ApartmentComplexGroupByOutputType = {
   longitude: number | null
   createdAt: Date
   updatedAt: Date
+  mapPriorityScore: number
+  hasRecentCancellation: boolean
+  recentRecordHighAt: Date | null
+  trendScore: number
+  reviewCount: number
+  representativePrice: number | null
+  representativeArea: string | null
+  mapDataUpdatedAt: Date | null
   _count: ApartmentComplexCountAggregateOutputType | null
   _avg: ApartmentComplexAvgAggregateOutputType | null
   _sum: ApartmentComplexSumAggregateOutputType | null
@@ -456,6 +528,14 @@ export type ApartmentComplexWhereInput = {
   longitude?: Prisma.FloatNullableFilter<"ApartmentComplex"> | number | null
   createdAt?: Prisma.DateTimeFilter<"ApartmentComplex"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ApartmentComplex"> | Date | string
+  mapPriorityScore?: Prisma.FloatFilter<"ApartmentComplex"> | number
+  hasRecentCancellation?: Prisma.BoolFilter<"ApartmentComplex"> | boolean
+  recentRecordHighAt?: Prisma.DateTimeNullableFilter<"ApartmentComplex"> | Date | string | null
+  trendScore?: Prisma.FloatFilter<"ApartmentComplex"> | number
+  reviewCount?: Prisma.IntFilter<"ApartmentComplex"> | number
+  representativePrice?: Prisma.IntNullableFilter<"ApartmentComplex"> | number | null
+  representativeArea?: Prisma.StringNullableFilter<"ApartmentComplex"> | string | null
+  mapDataUpdatedAt?: Prisma.DateTimeNullableFilter<"ApartmentComplex"> | Date | string | null
   transactions?: Prisma.TransactionListRelationFilter
   recordHighs?: Prisma.RecordHighPriceListRelationFilter
   advertisers?: Prisma.ApartmentAdvertiserListRelationFilter
@@ -463,6 +543,8 @@ export type ApartmentComplexWhereInput = {
   listingStats?: Prisma.ListingStatsListRelationFilter
   schoolInfos?: Prisma.SchoolInfoListRelationFilter
   maintenanceFees?: Prisma.MaintenanceFeeListRelationFilter
+  views?: Prisma.ComplexViewListRelationFilter
+  reviews?: Prisma.ComplexReviewListRelationFilter
 }
 
 export type ApartmentComplexOrderByWithRelationInput = {
@@ -497,6 +579,14 @@ export type ApartmentComplexOrderByWithRelationInput = {
   longitude?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  hasRecentCancellation?: Prisma.SortOrder
+  recentRecordHighAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrderInput | Prisma.SortOrder
+  representativeArea?: Prisma.SortOrderInput | Prisma.SortOrder
+  mapDataUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   transactions?: Prisma.TransactionOrderByRelationAggregateInput
   recordHighs?: Prisma.RecordHighPriceOrderByRelationAggregateInput
   advertisers?: Prisma.ApartmentAdvertiserOrderByRelationAggregateInput
@@ -504,6 +594,8 @@ export type ApartmentComplexOrderByWithRelationInput = {
   listingStats?: Prisma.ListingStatsOrderByRelationAggregateInput
   schoolInfos?: Prisma.SchoolInfoOrderByRelationAggregateInput
   maintenanceFees?: Prisma.MaintenanceFeeOrderByRelationAggregateInput
+  views?: Prisma.ComplexViewOrderByRelationAggregateInput
+  reviews?: Prisma.ComplexReviewOrderByRelationAggregateInput
 }
 
 export type ApartmentComplexWhereUniqueInput = Prisma.AtLeast<{
@@ -541,6 +633,14 @@ export type ApartmentComplexWhereUniqueInput = Prisma.AtLeast<{
   longitude?: Prisma.FloatNullableFilter<"ApartmentComplex"> | number | null
   createdAt?: Prisma.DateTimeFilter<"ApartmentComplex"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ApartmentComplex"> | Date | string
+  mapPriorityScore?: Prisma.FloatFilter<"ApartmentComplex"> | number
+  hasRecentCancellation?: Prisma.BoolFilter<"ApartmentComplex"> | boolean
+  recentRecordHighAt?: Prisma.DateTimeNullableFilter<"ApartmentComplex"> | Date | string | null
+  trendScore?: Prisma.FloatFilter<"ApartmentComplex"> | number
+  reviewCount?: Prisma.IntFilter<"ApartmentComplex"> | number
+  representativePrice?: Prisma.IntNullableFilter<"ApartmentComplex"> | number | null
+  representativeArea?: Prisma.StringNullableFilter<"ApartmentComplex"> | string | null
+  mapDataUpdatedAt?: Prisma.DateTimeNullableFilter<"ApartmentComplex"> | Date | string | null
   transactions?: Prisma.TransactionListRelationFilter
   recordHighs?: Prisma.RecordHighPriceListRelationFilter
   advertisers?: Prisma.ApartmentAdvertiserListRelationFilter
@@ -548,6 +648,8 @@ export type ApartmentComplexWhereUniqueInput = Prisma.AtLeast<{
   listingStats?: Prisma.ListingStatsListRelationFilter
   schoolInfos?: Prisma.SchoolInfoListRelationFilter
   maintenanceFees?: Prisma.MaintenanceFeeListRelationFilter
+  views?: Prisma.ComplexViewListRelationFilter
+  reviews?: Prisma.ComplexReviewListRelationFilter
 }, "id">
 
 export type ApartmentComplexOrderByWithAggregationInput = {
@@ -582,6 +684,14 @@ export type ApartmentComplexOrderByWithAggregationInput = {
   longitude?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  hasRecentCancellation?: Prisma.SortOrder
+  recentRecordHighAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrderInput | Prisma.SortOrder
+  representativeArea?: Prisma.SortOrderInput | Prisma.SortOrder
+  mapDataUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ApartmentComplexCountOrderByAggregateInput
   _avg?: Prisma.ApartmentComplexAvgOrderByAggregateInput
   _max?: Prisma.ApartmentComplexMaxOrderByAggregateInput
@@ -624,6 +734,14 @@ export type ApartmentComplexScalarWhereWithAggregatesInput = {
   longitude?: Prisma.FloatNullableWithAggregatesFilter<"ApartmentComplex"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ApartmentComplex"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ApartmentComplex"> | Date | string
+  mapPriorityScore?: Prisma.FloatWithAggregatesFilter<"ApartmentComplex"> | number
+  hasRecentCancellation?: Prisma.BoolWithAggregatesFilter<"ApartmentComplex"> | boolean
+  recentRecordHighAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ApartmentComplex"> | Date | string | null
+  trendScore?: Prisma.FloatWithAggregatesFilter<"ApartmentComplex"> | number
+  reviewCount?: Prisma.IntWithAggregatesFilter<"ApartmentComplex"> | number
+  representativePrice?: Prisma.IntNullableWithAggregatesFilter<"ApartmentComplex"> | number | null
+  representativeArea?: Prisma.StringNullableWithAggregatesFilter<"ApartmentComplex"> | string | null
+  mapDataUpdatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ApartmentComplex"> | Date | string | null
 }
 
 export type ApartmentComplexCreateInput = {
@@ -658,6 +776,14 @@ export type ApartmentComplexCreateInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
@@ -665,6 +791,8 @@ export type ApartmentComplexCreateInput = {
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateInput = {
@@ -699,6 +827,14 @@ export type ApartmentComplexUncheckedCreateInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
@@ -706,6 +842,8 @@ export type ApartmentComplexUncheckedCreateInput = {
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUpdateInput = {
@@ -740,6 +878,14 @@ export type ApartmentComplexUpdateInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
@@ -747,6 +893,8 @@ export type ApartmentComplexUpdateInput = {
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateInput = {
@@ -781,6 +929,14 @@ export type ApartmentComplexUncheckedUpdateInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
@@ -788,6 +944,8 @@ export type ApartmentComplexUncheckedUpdateInput = {
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateManyInput = {
@@ -822,6 +980,14 @@ export type ApartmentComplexCreateManyInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
 }
 
 export type ApartmentComplexUpdateManyMutationInput = {
@@ -856,6 +1022,14 @@ export type ApartmentComplexUpdateManyMutationInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type ApartmentComplexUncheckedUpdateManyInput = {
@@ -890,6 +1064,14 @@ export type ApartmentComplexUncheckedUpdateManyInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type ApartmentComplexCountOrderByAggregateInput = {
@@ -924,6 +1106,14 @@ export type ApartmentComplexCountOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  hasRecentCancellation?: Prisma.SortOrder
+  recentRecordHighAt?: Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrder
+  representativeArea?: Prisma.SortOrder
+  mapDataUpdatedAt?: Prisma.SortOrder
 }
 
 export type ApartmentComplexAvgOrderByAggregateInput = {
@@ -937,6 +1127,10 @@ export type ApartmentComplexAvgOrderByAggregateInput = {
   cctvCount?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrder
 }
 
 export type ApartmentComplexMaxOrderByAggregateInput = {
@@ -970,6 +1164,14 @@ export type ApartmentComplexMaxOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  hasRecentCancellation?: Prisma.SortOrder
+  recentRecordHighAt?: Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrder
+  representativeArea?: Prisma.SortOrder
+  mapDataUpdatedAt?: Prisma.SortOrder
 }
 
 export type ApartmentComplexMinOrderByAggregateInput = {
@@ -1003,6 +1205,14 @@ export type ApartmentComplexMinOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  hasRecentCancellation?: Prisma.SortOrder
+  recentRecordHighAt?: Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrder
+  representativeArea?: Prisma.SortOrder
+  mapDataUpdatedAt?: Prisma.SortOrder
 }
 
 export type ApartmentComplexSumOrderByAggregateInput = {
@@ -1016,6 +1226,10 @@ export type ApartmentComplexSumOrderByAggregateInput = {
   cctvCount?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
+  mapPriorityScore?: Prisma.SortOrder
+  trendScore?: Prisma.SortOrder
+  reviewCount?: Prisma.SortOrder
+  representativePrice?: Prisma.SortOrder
 }
 
 export type ApartmentComplexScalarRelationFilter = {
@@ -1053,6 +1267,30 @@ export type NullableBoolFieldUpdateOperationsInput = {
 
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
+}
+
+export type FloatFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type ApartmentComplexCreateNestedOneWithoutTransactionsInput = {
@@ -1153,6 +1391,34 @@ export type ApartmentComplexUpdateOneRequiredWithoutAdvertisersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ApartmentComplexUpdateToOneWithWhereWithoutAdvertisersInput, Prisma.ApartmentComplexUpdateWithoutAdvertisersInput>, Prisma.ApartmentComplexUncheckedUpdateWithoutAdvertisersInput>
 }
 
+export type ApartmentComplexCreateNestedOneWithoutViewsInput = {
+  create?: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutViewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutViewsInput>
+  connectOrCreate?: Prisma.ApartmentComplexCreateOrConnectWithoutViewsInput
+  connect?: Prisma.ApartmentComplexWhereUniqueInput
+}
+
+export type ApartmentComplexUpdateOneRequiredWithoutViewsNestedInput = {
+  create?: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutViewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutViewsInput>
+  connectOrCreate?: Prisma.ApartmentComplexCreateOrConnectWithoutViewsInput
+  upsert?: Prisma.ApartmentComplexUpsertWithoutViewsInput
+  connect?: Prisma.ApartmentComplexWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ApartmentComplexUpdateToOneWithWhereWithoutViewsInput, Prisma.ApartmentComplexUpdateWithoutViewsInput>, Prisma.ApartmentComplexUncheckedUpdateWithoutViewsInput>
+}
+
+export type ApartmentComplexCreateNestedOneWithoutReviewsInput = {
+  create?: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutReviewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutReviewsInput>
+  connectOrCreate?: Prisma.ApartmentComplexCreateOrConnectWithoutReviewsInput
+  connect?: Prisma.ApartmentComplexWhereUniqueInput
+}
+
+export type ApartmentComplexUpdateOneRequiredWithoutReviewsNestedInput = {
+  create?: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutReviewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutReviewsInput>
+  connectOrCreate?: Prisma.ApartmentComplexCreateOrConnectWithoutReviewsInput
+  upsert?: Prisma.ApartmentComplexUpsertWithoutReviewsInput
+  connect?: Prisma.ApartmentComplexWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ApartmentComplexUpdateToOneWithWhereWithoutReviewsInput, Prisma.ApartmentComplexUpdateWithoutReviewsInput>, Prisma.ApartmentComplexUncheckedUpdateWithoutReviewsInput>
+}
+
 export type ApartmentComplexCreateWithoutTransactionsInput = {
   id?: string
   name: string
@@ -1185,12 +1451,22 @@ export type ApartmentComplexCreateWithoutTransactionsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutTransactionsInput = {
@@ -1225,12 +1501,22 @@ export type ApartmentComplexUncheckedCreateWithoutTransactionsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutTransactionsInput = {
@@ -1281,12 +1567,22 @@ export type ApartmentComplexUpdateWithoutTransactionsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutTransactionsInput = {
@@ -1321,12 +1617,22 @@ export type ApartmentComplexUncheckedUpdateWithoutTransactionsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateWithoutRentRecordsInput = {
@@ -1361,12 +1667,22 @@ export type ApartmentComplexCreateWithoutRentRecordsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutRentRecordsInput = {
@@ -1401,12 +1717,22 @@ export type ApartmentComplexUncheckedCreateWithoutRentRecordsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutRentRecordsInput = {
@@ -1457,12 +1783,22 @@ export type ApartmentComplexUpdateWithoutRentRecordsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutRentRecordsInput = {
@@ -1497,12 +1833,22 @@ export type ApartmentComplexUncheckedUpdateWithoutRentRecordsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateWithoutListingStatsInput = {
@@ -1537,12 +1883,22 @@ export type ApartmentComplexCreateWithoutListingStatsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutListingStatsInput = {
@@ -1577,12 +1933,22 @@ export type ApartmentComplexUncheckedCreateWithoutListingStatsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutListingStatsInput = {
@@ -1633,12 +1999,22 @@ export type ApartmentComplexUpdateWithoutListingStatsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutListingStatsInput = {
@@ -1673,12 +2049,22 @@ export type ApartmentComplexUncheckedUpdateWithoutListingStatsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateWithoutSchoolInfosInput = {
@@ -1713,12 +2099,22 @@ export type ApartmentComplexCreateWithoutSchoolInfosInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutSchoolInfosInput = {
@@ -1753,12 +2149,22 @@ export type ApartmentComplexUncheckedCreateWithoutSchoolInfosInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutSchoolInfosInput = {
@@ -1809,12 +2215,22 @@ export type ApartmentComplexUpdateWithoutSchoolInfosInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutSchoolInfosInput = {
@@ -1849,12 +2265,22 @@ export type ApartmentComplexUncheckedUpdateWithoutSchoolInfosInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateWithoutMaintenanceFeesInput = {
@@ -1889,12 +2315,22 @@ export type ApartmentComplexCreateWithoutMaintenanceFeesInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutMaintenanceFeesInput = {
@@ -1929,12 +2365,22 @@ export type ApartmentComplexUncheckedCreateWithoutMaintenanceFeesInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutMaintenanceFeesInput = {
@@ -1985,12 +2431,22 @@ export type ApartmentComplexUpdateWithoutMaintenanceFeesInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutMaintenanceFeesInput = {
@@ -2025,12 +2481,22 @@ export type ApartmentComplexUncheckedUpdateWithoutMaintenanceFeesInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateWithoutRecordHighsInput = {
@@ -2065,12 +2531,22 @@ export type ApartmentComplexCreateWithoutRecordHighsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutRecordHighsInput = {
@@ -2105,12 +2581,22 @@ export type ApartmentComplexUncheckedCreateWithoutRecordHighsInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutRecordHighsInput = {
@@ -2161,12 +2647,22 @@ export type ApartmentComplexUpdateWithoutRecordHighsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutRecordHighsInput = {
@@ -2201,12 +2697,22 @@ export type ApartmentComplexUncheckedUpdateWithoutRecordHighsInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexCreateWithoutAdvertisersInput = {
@@ -2241,12 +2747,22 @@ export type ApartmentComplexCreateWithoutAdvertisersInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexUncheckedCreateWithoutAdvertisersInput = {
@@ -2281,12 +2797,22 @@ export type ApartmentComplexUncheckedCreateWithoutAdvertisersInput = {
   longitude?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
   recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
   rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
   listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
   schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
 }
 
 export type ApartmentComplexCreateOrConnectWithoutAdvertisersInput = {
@@ -2337,12 +2863,22 @@ export type ApartmentComplexUpdateWithoutAdvertisersInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
 }
 
 export type ApartmentComplexUncheckedUpdateWithoutAdvertisersInput = {
@@ -2377,12 +2913,454 @@ export type ApartmentComplexUncheckedUpdateWithoutAdvertisersInput = {
   longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
   recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
   rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
   listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
   schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
   maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
+}
+
+export type ApartmentComplexCreateWithoutViewsInput = {
+  id?: string
+  name: string
+  nameChosung: string
+  kbComplexNo?: string | null
+  naverHscpNo?: string | null
+  kaptCode?: string | null
+  parkingCount?: number | null
+  elevatorCount?: number | null
+  heatingMethod?: string | null
+  hallwayType?: string | null
+  totalHouseholds?: number | null
+  exclusiveAreaSum?: number | null
+  maintenanceAreaSum?: number | null
+  parkingCountGround?: number | null
+  parkingCountUnderground?: number | null
+  cctvCount?: number | null
+  hasGym?: boolean | null
+  hasLibrary?: boolean | null
+  hasDaycare?: boolean | null
+  hasSeniorCenter?: boolean | null
+  hasPlayground?: boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: string
+  city: string
+  district: string
+  dong: string
+  roadAddress?: string | null
+  latitude?: number | null
+  longitude?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
+  transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
+  recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
+  advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
+  rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
+  listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
+  schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
+  maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewCreateNestedManyWithoutComplexInput
+}
+
+export type ApartmentComplexUncheckedCreateWithoutViewsInput = {
+  id?: string
+  name: string
+  nameChosung: string
+  kbComplexNo?: string | null
+  naverHscpNo?: string | null
+  kaptCode?: string | null
+  parkingCount?: number | null
+  elevatorCount?: number | null
+  heatingMethod?: string | null
+  hallwayType?: string | null
+  totalHouseholds?: number | null
+  exclusiveAreaSum?: number | null
+  maintenanceAreaSum?: number | null
+  parkingCountGround?: number | null
+  parkingCountUnderground?: number | null
+  cctvCount?: number | null
+  hasGym?: boolean | null
+  hasLibrary?: boolean | null
+  hasDaycare?: boolean | null
+  hasSeniorCenter?: boolean | null
+  hasPlayground?: boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: string
+  city: string
+  district: string
+  dong: string
+  roadAddress?: string | null
+  latitude?: number | null
+  longitude?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
+  transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
+  recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
+  advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
+  rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
+  listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
+  schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
+  maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  reviews?: Prisma.ComplexReviewUncheckedCreateNestedManyWithoutComplexInput
+}
+
+export type ApartmentComplexCreateOrConnectWithoutViewsInput = {
+  where: Prisma.ApartmentComplexWhereUniqueInput
+  create: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutViewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutViewsInput>
+}
+
+export type ApartmentComplexUpsertWithoutViewsInput = {
+  update: Prisma.XOR<Prisma.ApartmentComplexUpdateWithoutViewsInput, Prisma.ApartmentComplexUncheckedUpdateWithoutViewsInput>
+  create: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutViewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutViewsInput>
+  where?: Prisma.ApartmentComplexWhereInput
+}
+
+export type ApartmentComplexUpdateToOneWithWhereWithoutViewsInput = {
+  where?: Prisma.ApartmentComplexWhereInput
+  data: Prisma.XOR<Prisma.ApartmentComplexUpdateWithoutViewsInput, Prisma.ApartmentComplexUncheckedUpdateWithoutViewsInput>
+}
+
+export type ApartmentComplexUpdateWithoutViewsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  nameChosung?: Prisma.StringFieldUpdateOperationsInput | string
+  kbComplexNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  naverHscpNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kaptCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  parkingCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  elevatorCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  heatingMethod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hallwayType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  totalHouseholds?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  exclusiveAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  maintenanceAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  parkingCountGround?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  parkingCountUnderground?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cctvCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hasGym?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasLibrary?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasDaycare?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasSeniorCenter?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasPlayground?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  district?: Prisma.StringFieldUpdateOperationsInput | string
+  dong?: Prisma.StringFieldUpdateOperationsInput | string
+  roadAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
+  recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
+  advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
+  rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
+  listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
+  schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
+  maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUpdateManyWithoutComplexNestedInput
+}
+
+export type ApartmentComplexUncheckedUpdateWithoutViewsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  nameChosung?: Prisma.StringFieldUpdateOperationsInput | string
+  kbComplexNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  naverHscpNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kaptCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  parkingCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  elevatorCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  heatingMethod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hallwayType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  totalHouseholds?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  exclusiveAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  maintenanceAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  parkingCountGround?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  parkingCountUnderground?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cctvCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hasGym?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasLibrary?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasDaycare?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasSeniorCenter?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasPlayground?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  district?: Prisma.StringFieldUpdateOperationsInput | string
+  dong?: Prisma.StringFieldUpdateOperationsInput | string
+  roadAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
+  recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
+  advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
+  rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
+  listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
+  schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
+  maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  reviews?: Prisma.ComplexReviewUncheckedUpdateManyWithoutComplexNestedInput
+}
+
+export type ApartmentComplexCreateWithoutReviewsInput = {
+  id?: string
+  name: string
+  nameChosung: string
+  kbComplexNo?: string | null
+  naverHscpNo?: string | null
+  kaptCode?: string | null
+  parkingCount?: number | null
+  elevatorCount?: number | null
+  heatingMethod?: string | null
+  hallwayType?: string | null
+  totalHouseholds?: number | null
+  exclusiveAreaSum?: number | null
+  maintenanceAreaSum?: number | null
+  parkingCountGround?: number | null
+  parkingCountUnderground?: number | null
+  cctvCount?: number | null
+  hasGym?: boolean | null
+  hasLibrary?: boolean | null
+  hasDaycare?: boolean | null
+  hasSeniorCenter?: boolean | null
+  hasPlayground?: boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: string
+  city: string
+  district: string
+  dong: string
+  roadAddress?: string | null
+  latitude?: number | null
+  longitude?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
+  transactions?: Prisma.TransactionCreateNestedManyWithoutComplexInput
+  recordHighs?: Prisma.RecordHighPriceCreateNestedManyWithoutComplexInput
+  advertisers?: Prisma.ApartmentAdvertiserCreateNestedManyWithoutComplexInput
+  rentRecords?: Prisma.RentRecordCreateNestedManyWithoutComplexInput
+  listingStats?: Prisma.ListingStatsCreateNestedManyWithoutComplexInput
+  schoolInfos?: Prisma.SchoolInfoCreateNestedManyWithoutComplexInput
+  maintenanceFees?: Prisma.MaintenanceFeeCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewCreateNestedManyWithoutComplexInput
+}
+
+export type ApartmentComplexUncheckedCreateWithoutReviewsInput = {
+  id?: string
+  name: string
+  nameChosung: string
+  kbComplexNo?: string | null
+  naverHscpNo?: string | null
+  kaptCode?: string | null
+  parkingCount?: number | null
+  elevatorCount?: number | null
+  heatingMethod?: string | null
+  hallwayType?: string | null
+  totalHouseholds?: number | null
+  exclusiveAreaSum?: number | null
+  maintenanceAreaSum?: number | null
+  parkingCountGround?: number | null
+  parkingCountUnderground?: number | null
+  cctvCount?: number | null
+  hasGym?: boolean | null
+  hasLibrary?: boolean | null
+  hasDaycare?: boolean | null
+  hasSeniorCenter?: boolean | null
+  hasPlayground?: boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: string
+  city: string
+  district: string
+  dong: string
+  roadAddress?: string | null
+  latitude?: number | null
+  longitude?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  mapPriorityScore?: number
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: Date | string | null
+  trendScore?: number
+  reviewCount?: number
+  representativePrice?: number | null
+  representativeArea?: string | null
+  mapDataUpdatedAt?: Date | string | null
+  transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutComplexInput
+  recordHighs?: Prisma.RecordHighPriceUncheckedCreateNestedManyWithoutComplexInput
+  advertisers?: Prisma.ApartmentAdvertiserUncheckedCreateNestedManyWithoutComplexInput
+  rentRecords?: Prisma.RentRecordUncheckedCreateNestedManyWithoutComplexInput
+  listingStats?: Prisma.ListingStatsUncheckedCreateNestedManyWithoutComplexInput
+  schoolInfos?: Prisma.SchoolInfoUncheckedCreateNestedManyWithoutComplexInput
+  maintenanceFees?: Prisma.MaintenanceFeeUncheckedCreateNestedManyWithoutComplexInput
+  views?: Prisma.ComplexViewUncheckedCreateNestedManyWithoutComplexInput
+}
+
+export type ApartmentComplexCreateOrConnectWithoutReviewsInput = {
+  where: Prisma.ApartmentComplexWhereUniqueInput
+  create: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutReviewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutReviewsInput>
+}
+
+export type ApartmentComplexUpsertWithoutReviewsInput = {
+  update: Prisma.XOR<Prisma.ApartmentComplexUpdateWithoutReviewsInput, Prisma.ApartmentComplexUncheckedUpdateWithoutReviewsInput>
+  create: Prisma.XOR<Prisma.ApartmentComplexCreateWithoutReviewsInput, Prisma.ApartmentComplexUncheckedCreateWithoutReviewsInput>
+  where?: Prisma.ApartmentComplexWhereInput
+}
+
+export type ApartmentComplexUpdateToOneWithWhereWithoutReviewsInput = {
+  where?: Prisma.ApartmentComplexWhereInput
+  data: Prisma.XOR<Prisma.ApartmentComplexUpdateWithoutReviewsInput, Prisma.ApartmentComplexUncheckedUpdateWithoutReviewsInput>
+}
+
+export type ApartmentComplexUpdateWithoutReviewsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  nameChosung?: Prisma.StringFieldUpdateOperationsInput | string
+  kbComplexNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  naverHscpNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kaptCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  parkingCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  elevatorCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  heatingMethod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hallwayType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  totalHouseholds?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  exclusiveAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  maintenanceAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  parkingCountGround?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  parkingCountUnderground?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cctvCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hasGym?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasLibrary?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasDaycare?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasSeniorCenter?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasPlayground?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  district?: Prisma.StringFieldUpdateOperationsInput | string
+  dong?: Prisma.StringFieldUpdateOperationsInput | string
+  roadAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  transactions?: Prisma.TransactionUpdateManyWithoutComplexNestedInput
+  recordHighs?: Prisma.RecordHighPriceUpdateManyWithoutComplexNestedInput
+  advertisers?: Prisma.ApartmentAdvertiserUpdateManyWithoutComplexNestedInput
+  rentRecords?: Prisma.RentRecordUpdateManyWithoutComplexNestedInput
+  listingStats?: Prisma.ListingStatsUpdateManyWithoutComplexNestedInput
+  schoolInfos?: Prisma.SchoolInfoUpdateManyWithoutComplexNestedInput
+  maintenanceFees?: Prisma.MaintenanceFeeUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUpdateManyWithoutComplexNestedInput
+}
+
+export type ApartmentComplexUncheckedUpdateWithoutReviewsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  nameChosung?: Prisma.StringFieldUpdateOperationsInput | string
+  kbComplexNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  naverHscpNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kaptCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  parkingCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  elevatorCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  heatingMethod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hallwayType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  totalHouseholds?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  exclusiveAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  maintenanceAreaSum?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  parkingCountGround?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  parkingCountUnderground?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cctvCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hasGym?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasLibrary?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasDaycare?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasSeniorCenter?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  hasPlayground?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  detailedRawData?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  dataStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  district?: Prisma.StringFieldUpdateOperationsInput | string
+  dong?: Prisma.StringFieldUpdateOperationsInput | string
+  roadAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mapPriorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  hasRecentCancellation?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  recentRecordHighAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  trendScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  reviewCount?: Prisma.IntFieldUpdateOperationsInput | number
+  representativePrice?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  representativeArea?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mapDataUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  transactions?: Prisma.TransactionUncheckedUpdateManyWithoutComplexNestedInput
+  recordHighs?: Prisma.RecordHighPriceUncheckedUpdateManyWithoutComplexNestedInput
+  advertisers?: Prisma.ApartmentAdvertiserUncheckedUpdateManyWithoutComplexNestedInput
+  rentRecords?: Prisma.RentRecordUncheckedUpdateManyWithoutComplexNestedInput
+  listingStats?: Prisma.ListingStatsUncheckedUpdateManyWithoutComplexNestedInput
+  schoolInfos?: Prisma.SchoolInfoUncheckedUpdateManyWithoutComplexNestedInput
+  maintenanceFees?: Prisma.MaintenanceFeeUncheckedUpdateManyWithoutComplexNestedInput
+  views?: Prisma.ComplexViewUncheckedUpdateManyWithoutComplexNestedInput
 }
 
 
@@ -2398,6 +3376,8 @@ export type ApartmentComplexCountOutputType = {
   listingStats: number
   schoolInfos: number
   maintenanceFees: number
+  views: number
+  reviews: number
 }
 
 export type ApartmentComplexCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2408,6 +3388,8 @@ export type ApartmentComplexCountOutputTypeSelect<ExtArgs extends runtime.Types.
   listingStats?: boolean | ApartmentComplexCountOutputTypeCountListingStatsArgs
   schoolInfos?: boolean | ApartmentComplexCountOutputTypeCountSchoolInfosArgs
   maintenanceFees?: boolean | ApartmentComplexCountOutputTypeCountMaintenanceFeesArgs
+  views?: boolean | ApartmentComplexCountOutputTypeCountViewsArgs
+  reviews?: boolean | ApartmentComplexCountOutputTypeCountReviewsArgs
 }
 
 /**
@@ -2469,6 +3451,20 @@ export type ApartmentComplexCountOutputTypeCountMaintenanceFeesArgs<ExtArgs exte
   where?: Prisma.MaintenanceFeeWhereInput
 }
 
+/**
+ * ApartmentComplexCountOutputType without action
+ */
+export type ApartmentComplexCountOutputTypeCountViewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ComplexViewWhereInput
+}
+
+/**
+ * ApartmentComplexCountOutputType without action
+ */
+export type ApartmentComplexCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ComplexReviewWhereInput
+}
+
 
 export type ApartmentComplexSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2502,6 +3498,14 @@ export type ApartmentComplexSelect<ExtArgs extends runtime.Types.Extensions.Inte
   longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  mapPriorityScore?: boolean
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: boolean
+  trendScore?: boolean
+  reviewCount?: boolean
+  representativePrice?: boolean
+  representativeArea?: boolean
+  mapDataUpdatedAt?: boolean
   transactions?: boolean | Prisma.ApartmentComplex$transactionsArgs<ExtArgs>
   recordHighs?: boolean | Prisma.ApartmentComplex$recordHighsArgs<ExtArgs>
   advertisers?: boolean | Prisma.ApartmentComplex$advertisersArgs<ExtArgs>
@@ -2509,6 +3513,8 @@ export type ApartmentComplexSelect<ExtArgs extends runtime.Types.Extensions.Inte
   listingStats?: boolean | Prisma.ApartmentComplex$listingStatsArgs<ExtArgs>
   schoolInfos?: boolean | Prisma.ApartmentComplex$schoolInfosArgs<ExtArgs>
   maintenanceFees?: boolean | Prisma.ApartmentComplex$maintenanceFeesArgs<ExtArgs>
+  views?: boolean | Prisma.ApartmentComplex$viewsArgs<ExtArgs>
+  reviews?: boolean | Prisma.ApartmentComplex$reviewsArgs<ExtArgs>
   _count?: boolean | Prisma.ApartmentComplexCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["apartmentComplex"]>
 
@@ -2544,6 +3550,14 @@ export type ApartmentComplexSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  mapPriorityScore?: boolean
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: boolean
+  trendScore?: boolean
+  reviewCount?: boolean
+  representativePrice?: boolean
+  representativeArea?: boolean
+  mapDataUpdatedAt?: boolean
 }, ExtArgs["result"]["apartmentComplex"]>
 
 export type ApartmentComplexSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -2578,6 +3592,14 @@ export type ApartmentComplexSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  mapPriorityScore?: boolean
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: boolean
+  trendScore?: boolean
+  reviewCount?: boolean
+  representativePrice?: boolean
+  representativeArea?: boolean
+  mapDataUpdatedAt?: boolean
 }, ExtArgs["result"]["apartmentComplex"]>
 
 export type ApartmentComplexSelectScalar = {
@@ -2612,9 +3634,17 @@ export type ApartmentComplexSelectScalar = {
   longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  mapPriorityScore?: boolean
+  hasRecentCancellation?: boolean
+  recentRecordHighAt?: boolean
+  trendScore?: boolean
+  reviewCount?: boolean
+  representativePrice?: boolean
+  representativeArea?: boolean
+  mapDataUpdatedAt?: boolean
 }
 
-export type ApartmentComplexOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "nameChosung" | "kbComplexNo" | "naverHscpNo" | "kaptCode" | "parkingCount" | "elevatorCount" | "heatingMethod" | "hallwayType" | "totalHouseholds" | "exclusiveAreaSum" | "maintenanceAreaSum" | "parkingCountGround" | "parkingCountUnderground" | "cctvCount" | "hasGym" | "hasLibrary" | "hasDaycare" | "hasSeniorCenter" | "hasPlayground" | "detailedRawData" | "dataStatus" | "city" | "district" | "dong" | "roadAddress" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["apartmentComplex"]>
+export type ApartmentComplexOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "nameChosung" | "kbComplexNo" | "naverHscpNo" | "kaptCode" | "parkingCount" | "elevatorCount" | "heatingMethod" | "hallwayType" | "totalHouseholds" | "exclusiveAreaSum" | "maintenanceAreaSum" | "parkingCountGround" | "parkingCountUnderground" | "cctvCount" | "hasGym" | "hasLibrary" | "hasDaycare" | "hasSeniorCenter" | "hasPlayground" | "detailedRawData" | "dataStatus" | "city" | "district" | "dong" | "roadAddress" | "latitude" | "longitude" | "createdAt" | "updatedAt" | "mapPriorityScore" | "hasRecentCancellation" | "recentRecordHighAt" | "trendScore" | "reviewCount" | "representativePrice" | "representativeArea" | "mapDataUpdatedAt", ExtArgs["result"]["apartmentComplex"]>
 export type ApartmentComplexInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   transactions?: boolean | Prisma.ApartmentComplex$transactionsArgs<ExtArgs>
   recordHighs?: boolean | Prisma.ApartmentComplex$recordHighsArgs<ExtArgs>
@@ -2623,6 +3653,8 @@ export type ApartmentComplexInclude<ExtArgs extends runtime.Types.Extensions.Int
   listingStats?: boolean | Prisma.ApartmentComplex$listingStatsArgs<ExtArgs>
   schoolInfos?: boolean | Prisma.ApartmentComplex$schoolInfosArgs<ExtArgs>
   maintenanceFees?: boolean | Prisma.ApartmentComplex$maintenanceFeesArgs<ExtArgs>
+  views?: boolean | Prisma.ApartmentComplex$viewsArgs<ExtArgs>
+  reviews?: boolean | Prisma.ApartmentComplex$reviewsArgs<ExtArgs>
   _count?: boolean | Prisma.ApartmentComplexCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ApartmentComplexIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2638,6 +3670,8 @@ export type $ApartmentComplexPayload<ExtArgs extends runtime.Types.Extensions.In
     listingStats: Prisma.$ListingStatsPayload<ExtArgs>[]
     schoolInfos: Prisma.$SchoolInfoPayload<ExtArgs>[]
     maintenanceFees: Prisma.$MaintenanceFeePayload<ExtArgs>[]
+    views: Prisma.$ComplexViewPayload<ExtArgs>[]
+    reviews: Prisma.$ComplexReviewPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2671,6 +3705,14 @@ export type $ApartmentComplexPayload<ExtArgs extends runtime.Types.Extensions.In
     longitude: number | null
     createdAt: Date
     updatedAt: Date
+    mapPriorityScore: number
+    hasRecentCancellation: boolean
+    recentRecordHighAt: Date | null
+    trendScore: number
+    reviewCount: number
+    representativePrice: number | null
+    representativeArea: string | null
+    mapDataUpdatedAt: Date | null
   }, ExtArgs["result"]["apartmentComplex"]>
   composites: {}
 }
@@ -3072,6 +4114,8 @@ export interface Prisma__ApartmentComplexClient<T, Null = never, ExtArgs extends
   listingStats<T extends Prisma.ApartmentComplex$listingStatsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApartmentComplex$listingStatsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListingStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   schoolInfos<T extends Prisma.ApartmentComplex$schoolInfosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApartmentComplex$schoolInfosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SchoolInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   maintenanceFees<T extends Prisma.ApartmentComplex$maintenanceFeesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApartmentComplex$maintenanceFeesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MaintenanceFeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  views<T extends Prisma.ApartmentComplex$viewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApartmentComplex$viewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComplexViewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviews<T extends Prisma.ApartmentComplex$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApartmentComplex$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComplexReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3132,6 +4176,14 @@ export interface ApartmentComplexFieldRefs {
   readonly longitude: Prisma.FieldRef<"ApartmentComplex", 'Float'>
   readonly createdAt: Prisma.FieldRef<"ApartmentComplex", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ApartmentComplex", 'DateTime'>
+  readonly mapPriorityScore: Prisma.FieldRef<"ApartmentComplex", 'Float'>
+  readonly hasRecentCancellation: Prisma.FieldRef<"ApartmentComplex", 'Boolean'>
+  readonly recentRecordHighAt: Prisma.FieldRef<"ApartmentComplex", 'DateTime'>
+  readonly trendScore: Prisma.FieldRef<"ApartmentComplex", 'Float'>
+  readonly reviewCount: Prisma.FieldRef<"ApartmentComplex", 'Int'>
+  readonly representativePrice: Prisma.FieldRef<"ApartmentComplex", 'Int'>
+  readonly representativeArea: Prisma.FieldRef<"ApartmentComplex", 'String'>
+  readonly mapDataUpdatedAt: Prisma.FieldRef<"ApartmentComplex", 'DateTime'>
 }
     
 
@@ -3690,6 +4742,54 @@ export type ApartmentComplex$maintenanceFeesArgs<ExtArgs extends runtime.Types.E
   take?: number
   skip?: number
   distinct?: Prisma.MaintenanceFeeScalarFieldEnum | Prisma.MaintenanceFeeScalarFieldEnum[]
+}
+
+/**
+ * ApartmentComplex.views
+ */
+export type ApartmentComplex$viewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ComplexView
+   */
+  select?: Prisma.ComplexViewSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ComplexView
+   */
+  omit?: Prisma.ComplexViewOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ComplexViewInclude<ExtArgs> | null
+  where?: Prisma.ComplexViewWhereInput
+  orderBy?: Prisma.ComplexViewOrderByWithRelationInput | Prisma.ComplexViewOrderByWithRelationInput[]
+  cursor?: Prisma.ComplexViewWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ComplexViewScalarFieldEnum | Prisma.ComplexViewScalarFieldEnum[]
+}
+
+/**
+ * ApartmentComplex.reviews
+ */
+export type ApartmentComplex$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ComplexReview
+   */
+  select?: Prisma.ComplexReviewSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ComplexReview
+   */
+  omit?: Prisma.ComplexReviewOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ComplexReviewInclude<ExtArgs> | null
+  where?: Prisma.ComplexReviewWhereInput
+  orderBy?: Prisma.ComplexReviewOrderByWithRelationInput | Prisma.ComplexReviewOrderByWithRelationInput[]
+  cursor?: Prisma.ComplexReviewWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ComplexReviewScalarFieldEnum | Prisma.ComplexReviewScalarFieldEnum[]
 }
 
 /**
